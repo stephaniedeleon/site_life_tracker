@@ -1,0 +1,49 @@
+.Navbar nav {
+    height: 90px;
+    background-color: #2c4147;
+    margin-bottom: 20px;
+    color: white;
+    padding: 0 20px;
+    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Navbar .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.Navbar .logo img {
+    height: 90px;
+}
+
+.Navbar .logo h2 {
+    font-size: 24px;
+    margin-left: 20px;
+}
+
+.Navbar .nav {
+    display: flex;
+    align-items: center;
+}
+
+.Navbar .nav a {
+    margin: 0px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.Navbar .nav .register-link {
+    border-radius: 4px;
+    padding: 8px 14px;
+    border: 1px solid #00c98e;
+}
+
+.Navbar .nav .login-link {
+    border-radius: 4px;
+    padding: 8px 14px;
+    border: 1px solid #00c98e;
+}
