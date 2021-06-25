@@ -4,9 +4,7 @@ const morgan = require("morgan");
 const { PORT } = require("./config");
 const { NotFoundError } = require("./utils/errors");
 // const security = require("./middleware/security")
-// const authRoutes = require("./routes/auth")
-// const orderRoutes = require("./routes/orders")
-// const storeRoutes = require("./routes/store")
+const authRoutes = require("./routes/auth")
 
 const app = express();
 
@@ -22,7 +20,7 @@ app.use(morgan("tiny"));
 // //  - middleware...
 // app.use(security.extractUserFromJwt)
 
-// app.use("/auth", authRoutes);
+app.use("/auth", authRoutes);
 // app.use("/orders", orderRoutes);
 // app.use("/store", storeRoutes);
 
