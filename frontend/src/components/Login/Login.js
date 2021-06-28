@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import apiClient from "../../services/apiClient";
 import "./Login.css";
 
-export default function Login({ setAppState, user, setUser }) {
+export default function Login({ setAppState }) {
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +12,6 @@ export default function Login({ setAppState, user, setUser }) {
     email: "",
     password: ""
   });
-
 
   const handleOnInputChange = (event) => {
 
@@ -29,6 +28,7 @@ export default function Login({ setAppState, user, setUser }) {
 
   
   const handleOnSubmit = async (event) => {
+
     event.preventDefault()
     setIsLoading(true)
     setErrors((e) => ({ ...e, form: null }))
@@ -39,8 +39,8 @@ export default function Login({ setAppState, user, setUser }) {
     })
     if (error) setErrors((e) => ({ ...e, form: error })) 
     if (data?.user) {
-      setUser(data.user);
-      setAppState(data) //???????
+      // setUser(data.user);
+      setAppState(data);
       apiClient.setToken(data.token);
       navigate("/activity"); // after logging in, navigates to activity
   }

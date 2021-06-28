@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import apiClient from "../../services/apiClient";
 import "./SignUp.css";
 
-export default function SignUp({ setAppState, user, setUser }) {
+export default function SignUp({ setAppState }) {
 
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
@@ -68,7 +68,7 @@ export default function SignUp({ setAppState, user, setUser }) {
     });
     if (error) setErrors((e) => ({ ...e, form: error })) 
     if (data?.user) {
-      setUser(data.user);
+      // setUser(data.user);
       setAppState(data);
       apiClient.setToken(data.token);
       navigate("/activity"); // after logging in, navigates to activity
