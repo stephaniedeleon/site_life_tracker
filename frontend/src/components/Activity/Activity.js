@@ -12,7 +12,7 @@ export default function Activity({ user, setAppState }) {
           </div>
         ) : (
           <div> 
-            <p className="warning">You must be logged in to access that page.</p>
+            <p className="warning">You must be logged in to access this page.</p>
             <Login setAppState={setAppState}/>
           </div>
       ) }
