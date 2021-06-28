@@ -1,3 +1,5 @@
+import "./Sleep.css";
+
 export default function Sleep() {
 
     return (

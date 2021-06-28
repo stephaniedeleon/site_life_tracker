@@ -1,3 +1,5 @@
+import "./Activity.css";
+
 export default function Activity() {
 
     return (
