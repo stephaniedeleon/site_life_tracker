@@ -1,0 +1,32 @@
+.Home {
+    margin: 0 40px;
+    padding-bottom: 30px;
+}
+
+.Home .summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    height: fit-content;
+
+    max-width: 975px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Home .summary .text {
+    padding: 28px 36px;
+    color: #5b5b5b;
+    text-align: justify;
+}
+
+.Home .summary .text p {
+    font-size: 20px;
+}
+
+.Home .summary .media img {
+    padding: 10px;
+    height: 300px;
+}
