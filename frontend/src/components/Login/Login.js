@@ -13,10 +13,11 @@ export default function Login({ setAppState }) {
     password: ""
   });
 
+
   const handleOnInputChange = (event) => {
 
     if (event.target.name === "email") {
-      if (event.target.value.indexOf("@") === -1) {
+      if (event.target.value.indexOf("@") <= 0) {
         setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
       } else {
         setErrors((e) => ({ ...e, email: null }))

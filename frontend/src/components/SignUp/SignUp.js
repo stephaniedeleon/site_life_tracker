@@ -35,7 +35,7 @@ export default function SignUp({ setAppState }) {
       }
     }
     if (event.target.name === "email") {
-      if (event.target.value.indexOf("@") < 0) {
+      if (event.target.value.indexOf("@") <= 0) {
         setErrors((e) => ({ ...e, email: "Please enter a valid email." }))
       } else {
         setErrors((e) => ({ ...e, email: null }))
