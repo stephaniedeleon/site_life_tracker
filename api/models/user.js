@@ -9,8 +9,8 @@ class User {
     static makePublicUser(user) {
         return {
           id: user.id,
-          firstName = user.first_name,
-          lastName = user.last_name,
+          firstName: user.first_name,
+          lastName: user.last_name,
           email: user.email,
           username: user.username,
           isAdmin: user.is_admin,
