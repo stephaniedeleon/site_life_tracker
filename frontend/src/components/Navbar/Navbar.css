@@ -47,3 +47,14 @@
     padding: 8px 14px;
     border: 1px solid #00c98e;
 }
+
+.Navbar .nav .logout {
+    padding: 8px 14px;
+    margin: 0px 20px;
+    border: 1px solid #00c98e;
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+}

@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
 import logo from "../../images/logo.png";
 import "./Navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ user, setAppState }) {
+  const navigate = useNavigate();
+  const isAuthenticated = Boolean(user?.email);
+
+  const handleOnLogout = () => {
+    setAppState({});
+    navigate("/");
+  }
 
   return (
     <div className="Navbar">
@@ -17,8 +23,18 @@ export default function Navbar() {
                 <Link to='/exercise'>Exercise</Link>
                 <Link to='/nutrition'>Nutrition</Link>
                 <Link to='/sleep'>Sleep</Link>
-                <Link to='/login' className='login-link'>Login</Link>
-                <Link to='/register' className='register-link'>Signup</Link>
+                {/* if user is not authenticated or logged in, it will show the log in and register
+                  - if yes, it will show log out  */}
+                { !isAuthenticated ? (
+                  <div> 
+                    <Link to='/login' className='login-link'>Login</Link>
+                    <Link to='/register' className='register-link'>Signup</Link>
+                  </div>
+                ) : (
+                  <button className="logout" onClick={handleOnLogout}>
+                    Logout
+                  </button>
+                ) }
             </div>
         </nav>
     </div>
