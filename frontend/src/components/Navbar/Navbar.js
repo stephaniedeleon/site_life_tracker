@@ -32,7 +32,7 @@ export default function Navbar({ user, setAppState }) {
                   </div>
                 ) : (
                   <button className="logout" onClick={handleOnLogout}>
-                    Logout
+                    Sign Out
                   </button>
                 ) }
             </div>
