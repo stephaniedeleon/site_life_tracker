@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
-import axios from 'axios';
+import apiClient from "../../services/apiClient";
 import "./SignUp.css";
 
-export default function SignUp() {
+export default function SignUp({ setAppState, user, setUser }) {
 
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
@@ -15,7 +15,7 @@ export default function SignUp() {
     lastName: "",
     password: "",
     passwordConfirm: ""
-  })
+  });
 
 
   const handleOnInputChange = (event) => {
@@ -59,29 +59,47 @@ export default function SignUp() {
       setErrors((e) => ({ ...e, passwordConfirm: null }))
     }
 
-    try {
-      const res = await axios.post("http://localhost:3001/auth/register", {
-        email: form.email,
-        username: form.username,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        password: form.password,
-      })
-
-      if (res?.data?.user) {
-        //setAppState(res.data)
-        setIsLoading(false)
-        navigate("/")
-      } else {
-        setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-        setIsLoading(false)
-      }
-    } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
+    const { data, error } = await apiClient.signupUser({ 
+      email: form.email,
+      username: form.username,
+      firstName: form.firstName,
+      lastName: form.lastName,
+      password: form.password,
+    });
+    if (error) setErrors((e) => ({ ...e, form: error })) 
+    if (data?.user) {
+      setUser(data.user);
+      setAppState(data);
+      apiClient.setToken(data.token);
+      navigate("/activity"); // after logging in, navigates to activity
     }
+
+    setIsLoading(false)
+
+    // try {
+    //   const res = await axios.post("http://localhost:3001/auth/register", {
+    //     email: form.email,
+    //     username: form.username,
+    //     firstName: form.firstName,
+    //     lastName: form.lastName,
+    //     password: form.password,
+    //   })
+
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user);
+    //     setAppState(res.data) //????????????
+    //     setIsLoading(false)
+    //     navigate("/activity")
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
+    //     setIsLoading(false)
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+    //   setIsLoading(false)
+    // }
   }
 
 

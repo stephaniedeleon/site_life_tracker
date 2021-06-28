@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
-import axios from 'axios';
+import apiClient from "../../services/apiClient";
 import "./Login.css";
 
-export default function Login() { //{ setAppState }
+export default function Login({ setAppState, user, setUser }) {
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -12,6 +12,7 @@ export default function Login() { //{ setAppState }
     email: "",
     password: ""
   });
+
 
   const handleOnInputChange = (event) => {
 
@@ -32,22 +33,37 @@ export default function Login() { //{ setAppState }
     setIsLoading(true)
     setErrors((e) => ({ ...e, form: null }))
 
-    try {
-      const res = await axios.post(`http://localhost:3001/auth/login`, form)
-      if (res?.data) {
-        // setAppState(res.data)
-        setIsLoading(false)
-        navigate("/") // after logging in, navigates to home
-      } else {
-        setErrors((e) => ({ ...e, form: "Invalid email/password combination" }))
-        setIsLoading(false)
-      }
-    } catch (err) {
-      console.log(err)
-      const message = err?.response?.data?.error?.message
-      setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-      setIsLoading(false)
-    }
+    const { data, error } = await apiClient.loginUser({ 
+      email: form.email, 
+      password: form.password
+    })
+    if (error) setErrors((e) => ({ ...e, form: error })) 
+    if (data?.user) {
+      setUser(data.user);
+      setAppState(data) //???????
+      apiClient.setToken(data.token);
+      navigate("/activity"); // after logging in, navigates to activity
+  }
+
+    setIsLoading(false);
+
+    // try {
+    //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
+    //   if (res?.data?.user) {
+    //     setUser(res.data.user); //double check...
+    //     setAppState(res.data) //???????
+    //     setIsLoading(false)
+    //     navigate("/activity") // after logging in, navigates to home
+    //   } else {
+    //     setErrors((e) => ({ ...e, form: "Invalid email/password combination" }))
+    //     setIsLoading(false)
+    //   }
+    // } catch (err) {
+    //   console.log(err)
+    //   const message = err?.response?.data?.error?.message
+    //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
+    //   setIsLoading(false)
+    // }
   }
 
 
