@@ -27,8 +27,8 @@ export default function Navbar({ user, setAppState }) {
                   - if yes, it will show log out  */}
                 { !isAuthenticated ? (
                   <div> 
-                    <Link to='/login' className='login-link'>Login</Link>
-                    <Link to='/register' className='register-link'>Signup</Link>
+                    <Link to='/login' className='login-link'>Sign In</Link>
+                    <Link to='/register' className='register-link'>Sign Up</Link>
                   </div>
                 ) : (
                   <button className="logout" onClick={handleOnLogout}>
