@@ -7,23 +7,27 @@ import Sleep from "../Sleep/Sleep";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
+
+  const [appState, setAppState] = useState({}); //What does this do?
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar setAppState={setAppState} appState={appState} user={appState?.user}/>
 
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path='/activity' element={ <Activity />} />
-          <Route path='/exercise' element={ <Exercise />} />
-          <Route path='/nutrition' element={ <Nutrition />} />
-          <Route path='/sleep' element={ <Sleep />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<SignUp />} />
+          <Route path='/activity' element={ <Activity setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/exercise' element={ <Exercise setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/nutrition' element={ <Nutrition setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/sleep' element={ <Sleep setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path="/login" element={<Login setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path="/register" element={<SignUp setAppState={setAppState} appState={appState} user={appState?.user} />} />
         </Routes>
       </BrowserRouter>
     </div>
