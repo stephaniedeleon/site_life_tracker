@@ -56,23 +56,28 @@ export default function Login() { //{ setAppState }
         <div className="card">
 
             <h2>Login</h2>
+            {/* shows error at the top of the form */}
+            {Boolean(errors.form) && <span className="error">{errors.form}</span>}
             <br/>
 
             <div className="form">
               <div className="input-field">
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" placeholder="user@gmail.com" value={form.email} onChange={handleOnInputChange}/>
+                {/* shows error after input field */}
+                {errors.email && <span className="error">{errors.email}</span>}
               </div>
               <div className="input-field">
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" placeholder="password" value={form.password} onChange={handleOnInputChange}/>
+                {errors.password && <span className="error">{errors.password}</span>}
               </div>
               <button className="login-btn" disabled={isLoading} onClick={handleOnSubmit}>
                 {isLoading ? "Loading..." : "Login"}
               </button>
             </div>
 
-            <div class="footer">
+            <div className="footer">
               <p>Don"t have an account? Sign up <Link to="/register">here.</Link></p>
             </div>
 
