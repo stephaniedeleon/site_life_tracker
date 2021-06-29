@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Login from "../Login/Login";
 import ExCard from "./ExCard/ExCard";
+import PageHeader from '../PageHeader/PageHeader';
 import "./Exercise.css";
 
 export default function Exercise({ user, setAppState, exercises }) {
@@ -11,6 +12,7 @@ export default function Exercise({ user, setAppState, exercises }) {
     <div className="Exercise">
       { isAuthenticated ? (
         <div className="exercise-area">
+          <PageHeader sectionName="Exercise"/>
           <div className="title">
             <h1>Overview</h1>
             <Link to='/exercise/create'>Add Exercise</Link>

@@ -1,4 +1,5 @@
 import Login from "../Login/Login";
+import PageHeader from '../PageHeader/PageHeader';
 import "./Nutrition.css";
 
 export default function Nutrition({ user, setAppState }) {
@@ -8,7 +9,7 @@ export default function Nutrition({ user, setAppState }) {
       <div className="Nutrition">
           { isAuthenticated ? (
           <div> 
-            Nutrition
+             <PageHeader sectionName="Nutrition"/>
           </div>
         ) : (
           <div> 

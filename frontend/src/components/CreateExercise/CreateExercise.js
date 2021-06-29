@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import apiClient from "../../services/apiClient";
+import PageHeader from '../PageHeader/PageHeader';
 import "./CreateExercise.css";
 
 
@@ -41,7 +42,6 @@ export default function CreateExercise() { //{ addExercise }
         } else {
             setErrors((e) => ({ ...e, form: null }));
             navigate("/exercise");
-            // addExercise(data);
         } 
 
         setIsLoading(false);
@@ -50,6 +50,7 @@ export default function CreateExercise() { //{ addExercise }
 
     return (
         <div className="CreateExercise">
+            <PageHeader sectionName="Exercise"/>
             <div className="card">
                 <h2>Add Exercise</h2>
                 {/* shows error at the top of the form */}

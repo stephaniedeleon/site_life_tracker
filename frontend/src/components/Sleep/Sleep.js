@@ -1,4 +1,5 @@
 import Login from "../Login/Login";
+import PageHeader from '../PageHeader/PageHeader'
 import "./Sleep.css";
 
 export default function Sleep({ user, setAppState }) {
@@ -7,9 +8,7 @@ export default function Sleep({ user, setAppState }) {
     return (
       <div className="Sleep">
         { isAuthenticated ? (
-          <div> 
-            Sleep
-          </div>
+          <PageHeader sectionName="Sleep"/>
         ) : (
           <div> 
             <p className="warning">You must be logged in to access this page.</p>

@@ -1,8 +1,8 @@
 .CreateExercise {
-    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
   
 .CreateExercise .card {
@@ -44,7 +44,6 @@
     margin-top: 5px;
     width: 100%;
     background: transparent;
-    color: var(--pure-white);
 }
 
 .CreateExercise .card .error {
