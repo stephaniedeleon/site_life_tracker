@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import apiClient from '../../services/apiClient';
-import logo from "../../images/logo.png";
 import "./Navbar.css";
 
 export default function Navbar({ user, setAppState }) {
@@ -17,8 +16,8 @@ export default function Navbar({ user, setAppState }) {
     <div className="Navbar">
         <nav>
             <Link to='/' className="logo">
-                <img src={logo} alt="codepath logo" />
-                <h2>Life Tracker</h2>
+                <img src="http://codepath-lifetracker.surge.sh/static/media/codepath.70a9a31f.svg" alt="codepath logo" />
+                <h2>LifeTracker</h2>
             </Link>
             <div className="nav">
                 <Link to='/activity'>Activity</Link>
