@@ -22,7 +22,7 @@ app.use(morgan("tiny"));
 app.use(security.extractUserFromJwt);
 
 app.use("/auth", authRoutes);
-app.use("/exercises", exercisesRoutes);
+app.use("/exercise", exercisesRoutes);
 
 
 /** Handle 404 errors -- this matches everything */
