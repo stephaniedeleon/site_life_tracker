@@ -22,7 +22,7 @@ router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 
 
 //Creating a new exercise
-router.post("/", requireAuthenticatedUser, async (req, res, next) => {
+router.post("/create", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
         const user = res.locals.user;
