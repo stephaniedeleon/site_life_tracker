@@ -4,9 +4,9 @@ import apiClient from "../../services/apiClient";
 import "./CreateExercise.css";
 
 
-export default function CreateExercise() { //{ setAppState })
+export default function CreateExercise() { //{ addExercise }
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({
@@ -29,7 +29,7 @@ export default function CreateExercise() { //{ setAppState })
         setIsLoading(true);
         setErrors((e) => ({ ...e, form: null }));
     
-        const { error } = await apiClient.createExercise({ 
+        const { data, error } = await apiClient.createExercise({ 
             name: form.name,
             category: form.category,
             duration: form.duration,
@@ -38,13 +38,10 @@ export default function CreateExercise() { //{ setAppState })
 
         if (error) {
             setErrors((e) => ({ ...e, form: error }));
-        } else if (!form.name || !form.category) {
-            setErrors((e) => ({ ...e, form: "Please complete all required fields." }));
-        } else if (form.duration <= 0 || form.intensity <= 0) {
-            setErrors((e) => ({ ...e, form: "Number fields should be greater than 0." }));
         } else {
             setErrors((e) => ({ ...e, form: null }));
             navigate("/exercise");
+            // addExercise(data);
         } 
 
         setIsLoading(false);

@@ -19,8 +19,17 @@ class Exercise {
 
     static async createExercise({ user, exercise }) {
 
-        if (!exercise || !Object.keys(exercise).length) {
-            throw new BadRequestError("No exercise info provided")
+        const requiredFields = ["name", "category", "duration", "intensity"];
+        requiredFields.forEach((field) => {
+        if (!exercise.hasOwnProperty(field) || !exercise[field]) {
+            throw new BadRequestError(`Required field - ${field} - missing from request body.`)
+        }
+        });
+
+        if (exercise.duration < 1) {
+            throw new BadRequestError(`Duration must be more than 1 minute.`);
+        } else if (exercise.intensity < 1 || exercise.intensity > 10) {
+            throw new BadRequestError(`Intensity must be between 1 and 10.`);
         }
 
         //create a new exercise - store in database
