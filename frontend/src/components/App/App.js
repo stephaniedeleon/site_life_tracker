@@ -15,13 +15,15 @@ import "./App.css";
 
 function App() {
 
-  const [appState, setAppState] = useState({}); //What does this do?
+  const [appState, setAppState] = useState({});
+  const [error, setError] = useState(null);
 
   //persists logged in user
   useEffect(() => {
     const fetchAuthedUser = async () => {
-      const { data } = await apiClient.fetchUserFromToken();
+      const { data, error } = await apiClient.fetchUserFromToken();
       if(data) setAppState(data);
+      if(error) setError(error);
     }
 
     const token = localStorage.getItem("life_tracker_token");
@@ -35,14 +37,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar setAppState={setAppState} appState={appState} user={appState?.user}/>
+        <Navbar setAppState={setAppState} appState={appState} user={appState?.user} />
 
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path='/activity' element={ <Activity setAppState={setAppState} appState={appState} user={appState?.user} />} />
 
           <Route path='/exercise' element={ <Exercise setAppState={setAppState} appState={appState} user={appState?.user} />} />
-          <Route path='/exercise/create' element={ <CreateExercise />} />
+          <Route path='/exercise/create' element={ <CreateExercise />} /> 
           
           <Route path='/nutrition' element={ <Nutrition setAppState={setAppState} appState={appState} user={appState?.user} />} />
           <Route path='/sleep' element={ <Sleep setAppState={setAppState} appState={appState} user={appState?.user} />} />
