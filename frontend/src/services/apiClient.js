@@ -6,7 +6,7 @@ class ApiClient {
 
         this.remoteHostUrl = remoteHostUrl;
         this.token = null;
-        this.tokenName = "student_store_token";
+        this.tokenName = "life_tracker_token";
     }
 
     //utility method...
@@ -41,9 +41,10 @@ class ApiClient {
         localStorage.setItem(this.tokenName, token);
     }
 
-    // async fetchUserFromToken() {
-    //     return await this.request({ endpoint: "auth/me/", method: "GET" });
-    // }
+    //helps persist the logged in user
+    async fetchUserFromToken() {
+        return await this.request({ endpoint: "auth/me/", method: "GET" });
+    }
 
     async loginUser(credentials) { 
         return await this.request({ endpoint: "auth/login/", method: "POST", data: credentials });

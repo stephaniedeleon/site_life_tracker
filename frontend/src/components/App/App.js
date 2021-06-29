@@ -8,13 +8,29 @@ import Sleep from "../Sleep/Sleep";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import apiClient from "../../services/apiClient";
 import "./App.css";
 
 function App() {
 
   const [appState, setAppState] = useState({}); //What does this do?
+
+  //persists logged in user
+  useEffect(() => {
+    const fetchAuthedUser = async () => {
+      const { data } = await apiClient.fetchUserFromToken();
+      if(data) setAppState(data);
+    }
+
+    const token = localStorage.getItem("life_tracker_token");
+    if (token) {
+      apiClient.setToken(token);
+      fetchAuthedUser();
+    }
+
+  }, []);
 
   return (
     <div className="App">
