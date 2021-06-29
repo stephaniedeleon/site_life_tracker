@@ -28,9 +28,10 @@ class ApiClient {
         }
     }
 
-    // async listExercises() {
-    //     return await this.request({ endpoint: "exercise", method: "GET" });
-    // }
+    async listExercises() {
+        console.log("listExercises");
+        return await this.request({ endpoint: "exercise", method: "GET" });
+    }
 
     async createExercise(details) { 
         return await this.request({ endpoint: "exercise/create/", method: "POST", data: details });
@@ -52,6 +53,11 @@ class ApiClient {
 
     async signupUser(credentials) { 
         return await this.request({ endpoint: "auth/register/", method: "POST", data: credentials }) ;
+    }
+
+    async logoutUser() { 
+        this.token = null;
+        localStorage.setItem(this.tokenName, "");
     }
 }
 
