@@ -17,6 +17,26 @@ function App() {
 
   const [appState, setAppState] = useState({});
   const [error, setError] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
+  const [exercises, setExercises] = useState([]);
+
+  
+  //fetches exercises
+  useEffect(() => {
+    const fetchExercises = async () => {
+      setIsFetching(true);
+
+      const { data, error } = await apiClient.listExercises();
+      if(data) setExercises(data.exercises);
+      if(error) setError(error);
+
+      setIsFetching(false);
+    }
+
+    if (appState?.user) fetchExercises();
+
+  }, [appState?.user]); 
+
 
   //persists logged in user
   useEffect(() => {
@@ -34,23 +54,62 @@ function App() {
 
   }, []);
 
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar setAppState={setAppState} appState={appState} user={appState?.user} />
+        <Navbar 
+          setAppState={setAppState} 
+          appState={appState} 
+          user={appState?.user} 
+        />
 
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path='/activity' element={ <Activity setAppState={setAppState} appState={appState} user={appState?.user} />} />
 
-          <Route path='/exercise' element={ <Exercise setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/activity' element={ 
+              <Activity setAppState={setAppState} 
+                        appState={appState} 
+                        user={appState?.user} 
+                        exercises={exercises}
+              />} 
+          />
+
+          <Route path='/exercise' element={ 
+              <Exercise setAppState={setAppState} 
+                        appState={appState} 
+                        user={appState?.user} 
+                        exercises={exercises} 
+              />} 
+          />
           <Route path='/exercise/create' element={ <CreateExercise />} /> 
           
-          <Route path='/nutrition' element={ <Nutrition setAppState={setAppState} appState={appState} user={appState?.user} />} />
-          <Route path='/sleep' element={ <Sleep setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/nutrition' element={ 
+              <Nutrition setAppState={setAppState} 
+                         appState={appState} 
+                         user={appState?.user} 
+              />} 
+          />
 
-          <Route path="/login" element={<Login setAppState={setAppState} appState={appState} user={appState?.user} />} />
-          <Route path="/register" element={<SignUp setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/sleep' element={ 
+              <Sleep setAppState={setAppState}
+                     appState={appState} 
+                     user={appState?.user} 
+              />} 
+          />
+
+          <Route path="/login" element={
+              <Login setAppState={setAppState} 
+                     appState={appState} 
+                     user={appState?.user} 
+              />} 
+          />
+          <Route path="/register" element={
+              <SignUp setAppState={setAppState} 
+                      appState={appState} 
+                      user={appState?.user} 
+              />} 
+          />
         </Routes>
       </BrowserRouter>
     </div>
