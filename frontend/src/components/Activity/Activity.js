@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Login from "../Login/Login";
 import "./Activity.css";
 
@@ -17,6 +18,8 @@ export default function Activity({ user, setAppState, exercises }) {
       { isAuthenticated ? (
           <div> 
             Activity
+            <br/>
+            <Link to='/exercise/create'>Add Exercise</Link>
             <p>Exercise Minutes: {exerciseMin}</p>
           </div>
         ) : (
