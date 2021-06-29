@@ -1,0 +1,63 @@
+.CreateExercise {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.CreateExercise .card {
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    background: white;
+
+    margin: 20px;
+    padding: 24px 36px 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    width: 520px;
+}
+
+.CreateExercise .card .form .input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.CreateExercise .card .form .split-input-field {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+.CreateExercise .card .form .input-field input {
+    height: 50px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-top: 5px;
+    width: 100%;
+    background: transparent;
+    color: var(--pure-white);
+}
+
+.CreateExercise .card .error {
+    color: red;
+}
+
+.CreateExercise .card .form button {
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #00c98e;
+    background-color: white;
+    font-size: 16px;
+}

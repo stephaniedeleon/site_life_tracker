@@ -28,9 +28,13 @@ class ApiClient {
         }
     }
 
-    // async listProducts() {
-    //     return await this.request({ endpoint: "store", method: "GET" });
+    // async listExercises() {
+    //     return await this.request({ endpoint: "exercise", method: "GET" });
     // }
+
+    async createExercise(details) { 
+        return await this.request({ endpoint: "exercise/create/", method: "POST", data: details });
+    }
 
     setToken(token) {
         this.token = token;

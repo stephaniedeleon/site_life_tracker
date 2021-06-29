@@ -2,6 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import Activity from "../Activity/Activity";
 import Exercise from "../Exercise/Exercise";
+import CreateExercise from "../CreateExercise/CreateExercise";
 import Nutrition from "../Nutrition/Nutrition";
 import Sleep from "../Sleep/Sleep";
 import Login from "../Login/Login";
@@ -23,9 +24,13 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path='/activity' element={ <Activity setAppState={setAppState} appState={appState} user={appState?.user} />} />
+
           <Route path='/exercise' element={ <Exercise setAppState={setAppState} appState={appState} user={appState?.user} />} />
+          <Route path='/exercise/create' element={ <CreateExercise />} />
+          
           <Route path='/nutrition' element={ <Nutrition setAppState={setAppState} appState={appState} user={appState?.user} />} />
           <Route path='/sleep' element={ <Sleep setAppState={setAppState} appState={appState} user={appState?.user} />} />
+
           <Route path="/login" element={<Login setAppState={setAppState} appState={appState} user={appState?.user} />} />
           <Route path="/register" element={<SignUp setAppState={setAppState} appState={appState} user={appState?.user} />} />
         </Routes>

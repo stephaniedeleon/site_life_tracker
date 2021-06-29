@@ -1,4 +1,5 @@
 import Login from "../Login/Login";
+import { Link } from 'react-router-dom';
 import "./Exercise.css";
 
 export default function Exercise({ user, setAppState }) {
@@ -6,16 +7,18 @@ export default function Exercise({ user, setAppState }) {
 
     return (
       <div className="Exercise">
-          { isAuthenticated ? (
+        { isAuthenticated ? (
           <div> 
             Exercise
+            <br/>
+            <Link to='/exercise/create'>Create Exercise</Link>
           </div>
         ) : (
           <div> 
             <p className="warning">You must be logged in to access this page.</p>
-            <Login setAppState={setAppState}/>
-          </div>
-      ) }
+            <Login setAppState={setAppState} />
+          </div>  
+        ) }
       </div>
     );
 }
