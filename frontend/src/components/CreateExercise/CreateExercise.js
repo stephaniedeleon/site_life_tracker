@@ -16,7 +16,7 @@ export default function CreateExercise() { //{ setAppState })
         intensity: ""
     });
 
-    
+
     const handleOnInputChange = (event) => {
           
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
@@ -38,8 +38,10 @@ export default function CreateExercise() { //{ setAppState })
 
         if (error) {
             setErrors((e) => ({ ...e, form: error }));
-        } else if (!form.name || !form.category || !form.duration || !form.intensity) {
+        } else if (!form.name || !form.category) {
             setErrors((e) => ({ ...e, form: "Please complete all required fields." }));
+        } else if (form.duration <= 0 || form.intensity <= 0) {
+            setErrors((e) => ({ ...e, form: "Number fields should be greater than 0." }));
         } else {
             setErrors((e) => ({ ...e, form: null }));
             navigate("/exercise");
