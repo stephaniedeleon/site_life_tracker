@@ -12,6 +12,7 @@ class Exercise {
 
         const result = await db.query(query, [user.email]);
 
+        //return exercises
         return result.rows;
     }
 

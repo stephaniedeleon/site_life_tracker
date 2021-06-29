@@ -26,7 +26,7 @@ router.post("/create", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
         const user = res.locals.user;
-        const exercise = await Exercise.createExercise( { user, exercise: req.body.exercise });
+        const exercise = await Exercise.createExercise( { user, exercise: req.body });
         res.status(201).json({ exercise });
 
     } catch(err) {
