@@ -40,31 +40,12 @@ export default function Login({ setAppState }) {
     })
     if (error) setErrors((e) => ({ ...e, form: error })) 
     if (data?.user) {
-      // setUser(data.user);
       setAppState(data);
       apiClient.setToken(data.token);
       navigate("/activity"); // after logging in, navigates to activity
   }
 
     setIsLoading(false);
-
-    // try {
-    //   const res = await axios.post(`http://localhost:3001/auth/login`, form)
-    //   if (res?.data?.user) {
-    //     setUser(res.data.user); //double check...
-    //     setAppState(res.data) //???????
-    //     setIsLoading(false)
-    //     navigate("/activity") // after logging in, navigates to home
-    //   } else {
-    //     setErrors((e) => ({ ...e, form: "Invalid email/password combination" }))
-    //     setIsLoading(false)
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    //   const message = err?.response?.data?.error?.message
-    //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-    //   setIsLoading(false)
-    // }
   }
 
 

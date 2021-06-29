@@ -75,31 +75,6 @@ export default function SignUp({ setAppState }) {
     }
 
     setIsLoading(false)
-
-    // try {
-    //   const res = await axios.post("http://localhost:3001/auth/register", {
-    //     email: form.email,
-    //     username: form.username,
-    //     firstName: form.firstName,
-    //     lastName: form.lastName,
-    //     password: form.password,
-    //   })
-
-    //   if (res?.data?.user) {
-    //     setUser(res.data.user);
-    //     setAppState(res.data) //????????????
-    //     setIsLoading(false)
-    //     navigate("/activity")
-    //   } else {
-    //     setErrors((e) => ({ ...e, form: "Something went wrong with registration" }))
-    //     setIsLoading(false)
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    //   const message = err?.response?.data?.error?.message
-    //   setErrors((e) => ({ ...e, form: message ? String(message) : String(err) }))
-    //   setIsLoading(false)
-    // }
   }
 
 
