@@ -16,6 +16,17 @@ CREATE TABLE exercises (
     category      TEXT NOT NULL,
     duration      INTEGER NOT NULL DEFAULT 1,
     intensity     INTEGER NOT NULL DEFAULT 1,
-    created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE nutritions (
+    id            SERIAL PRIMARY KEY,
+    user_id       INTEGER NOT NULL,
+    name          TEXT NOT NULL,
+    category      TEXT NOT NULL,
+    quantity      INTEGER NOT NULL DEFAULT 1,
+    calories      INTEGER NOT NULL DEFAULT 1,
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

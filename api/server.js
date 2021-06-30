@@ -6,6 +6,7 @@ const { NotFoundError } = require("./utils/errors");
 const security = require("./middleware/security");
 const authRoutes = require("./routes/auth");
 const exercisesRoutes = require("./routes/exercises");
+const nutritionRoutes = require("./routes/nutritions");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(security.extractUserFromJwt);
 
 app.use("/auth", authRoutes);
 app.use("/exercise", exercisesRoutes);
+app.use("/nutrition", nutritionRoutes);
 
 
 /** Handle 404 errors -- this matches everything */
