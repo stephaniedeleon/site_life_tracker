@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara&family=Playfair+Display:wght@600&family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 body {
   margin: 0;
+  background-color: white; 
+  color: #2c4147;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  /* #f9f8f8; */
   font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
