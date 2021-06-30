@@ -1,7 +1,12 @@
 import { Login, PageHeader } from "components";
+import React, { useContext } from "react";
+import AuthContext from "contexts/auth";
 import "./Sleep.css";
 
-export default function Sleep({ user, setAppState }) {
+export default function Sleep() {
+
+  const { user, setAppState } = useContext(AuthContext);
+
   const isAuthenticated = Boolean(user?.email);
 
     return (

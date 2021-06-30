@@ -1,4 +1,4 @@
-import { formatDate } from "../../../utils/format";
+import { formatDate } from "utils/format";
 import "./NutritionCard.css";
 
 
@@ -7,7 +7,7 @@ export default function NutritionCard({ key, nutrition }) {
   return (
     <div className="NutritionCard">
       <div className="card">
-          <div class="title"><h3 className="name">{nutrition.name}</h3></div>
+          <div className="title"><h3 className="name">{nutrition.name}</h3></div>
           <div className="details">
             <div className="quantity">
               <p className="valueName">Quantity</p>

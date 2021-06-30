@@ -1,4 +1,4 @@
-import { formatDate } from "../../../utils/format";
+import { formatDate } from "utils/format";
 import "./ExCard.css";
 
 
@@ -7,7 +7,7 @@ export default function ExCard({ key, exercise }) {
   return (
     <div className="ExCard">
       <div className="card">
-          <div class="title"><h3 className="name">{exercise.name}</h3></div>
+          <div className="title"><h3 className="name">{exercise.name}</h3></div>
           <div className="details">
             <div className="duration">
               <p className="valueName">Duration</p>

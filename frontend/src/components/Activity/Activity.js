@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Login } from "components";
+import React, { useContext } from "react";
+import AuthContext from "contexts/auth";
 import "./Activity.css";
 
-export default function Activity({ user, setAppState, exercises }) {
+export default function Activity({ exercises }) {
+
+  const { user, setAppState } = useContext(AuthContext);
+
   const isAuthenticated = Boolean(user?.email);
 
   let exerciseMin = 0;

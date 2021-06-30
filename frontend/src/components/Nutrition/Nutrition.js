@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
+
+import React, { useContext } from "react";
+import AuthContext from "contexts/auth";
+
 import apiClient from "services/apiClient";
 
 import { Login, PageHeader } from "components";
 import NutritionCard from './NutritionCard/NutritionCard';
 import "./Nutrition.css";
 
-export default function Nutrition({ user, setAppState, nutritions, setNutritions }) {
-  
+export default function Nutrition({ nutritions, setNutritions }) {
+
+  const { user, setAppState } = useContext(AuthContext);
+
   const isAuthenticated = Boolean(user?.email);
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);

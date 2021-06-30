@@ -2,9 +2,9 @@ import { Link } from "react-router-dom"
 import { useLoginForm } from "hooks/useLoginForm";
 import "./Login.css";
 
-export default function Login({ setAppState }) {
+export default function Login() {
 
-  const { form, errors, isLoading, handleOnInputChange, handleOnSubmit } = useLoginForm({ setAppState });
+  const { form, errors, isLoading, handleOnInputChange, handleOnSubmit } = useLoginForm();
   
   return (
     <div className="Login">

@@ -1,14 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
 import apiClient from 'services/apiClient';
+import React, { useContext } from "react";
+import AuthContext from "contexts/auth";
 import "./Navbar.css";
 
-export default function Navbar({ user, setAppState }) {
+export default function Navbar() {
+
+  const { user, setAppState, setUser } = useContext(AuthContext);
+  
   const navigate = useNavigate();
   const isAuthenticated = Boolean(user?.email);
 
+  //logs out the user
   const handleOnLogout = async () => {
     await apiClient.logoutUser();
     setAppState({});
+    setUser({});
     navigate("/");
   }
 

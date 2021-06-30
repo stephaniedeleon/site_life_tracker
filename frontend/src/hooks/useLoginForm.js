@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+
+import React, { useContext } from "react";
+import AuthContext from "contexts/auth";
+
 import apiClient from "services/apiClient";
 
-export const useLoginForm = ({ setAppState }) => {
+export const useLoginForm = () => {
+
+    const { setAppState, setUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
@@ -10,8 +16,7 @@ export const useLoginForm = ({ setAppState }) => {
     const [form, setForm] = useState({
       email: "",
       password: ""
-    });
-
+    });    
   
     const handleOnInputChange = (event) => {
   
@@ -40,6 +45,7 @@ export const useLoginForm = ({ setAppState }) => {
       if (error) setErrors((e) => ({ ...e, form: error })) 
       if (data?.user) {
         setAppState(data);
+        setUser(data.user);
         apiClient.setToken(data.token);
         navigate("/activity"); // after logging in, navigates to activity
     }

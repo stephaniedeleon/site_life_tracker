@@ -4,19 +4,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import apiClient from "services/apiClient"; //possible with jsconfig.json
 import "./App.css";
 
+import AuthContext from "contexts/auth";
+
 function App() {
 
   const [appState, setAppState] = useState({});
   const [error, setError] = useState(null);
   const [exercises, setExercises] = useState([]);
   const [nutritions, setNutritions] = useState([]); 
+  const [user, setUser] = useState({});
 
 
   //adds a new exercise to list of exercises
   const addExercise = (newExercise) => {
     setExercises((oldExercises) => [newExercise, ...oldExercises])
   }
-
 
   //adds a new nutrition to list of nutritions
   const addNutrition = (newNutrition) => {
@@ -29,6 +31,7 @@ function App() {
     const fetchAuthedUser = async () => {
       const { data, error } = await apiClient.fetchUserFromToken();
       if(data) setAppState(data);
+      if(data?.user) setUser(data.user);
       if(error) setError(error);
     }
 
@@ -42,68 +45,41 @@ function App() {
 
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar 
-          setAppState={setAppState} 
-          appState={appState} 
-          user={appState?.user} 
-        />
+    <AuthContext.Provider value={{ setAppState, appState, user, setUser }}>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" exact element={<Home />} />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
 
-          <Route path='/activity' element={ 
-              <Activity setAppState={setAppState} 
-                        appState={appState} 
-                        user={appState?.user} 
-                        exercises={exercises}
-                        nutritions={nutritions}
-              />} 
-          />
+            <Route path='/activity' element={ 
+                <Activity exercises={exercises} 
+                          nutritions={nutritions} />} 
+            />
 
-          <Route path='/exercise' element={ 
-              <Exercise setAppState={setAppState} 
-                        appState={appState} 
-                        user={appState?.user} 
-                        exercises={exercises}
-                        setExercises={setExercises}
-              />} 
-          />
-          <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 
-          
-          <Route path='/nutrition' element={ 
-              <Nutrition setAppState={setAppState} 
-                         appState={appState} 
-                         user={appState?.user} 
-                         nutritions={nutritions}
-                         setNutritions={setNutritions}
-              />} 
-          />
-          <Route path='/nutrition/record' element={ <RecordNutrition addNutrition={addNutrition} />} /> 
+            <Route path='/exercise' element={ 
+                <Exercise exercises={exercises} 
+                          setExercises={setExercises} />} 
+            />
+            <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 
+            
+            <Route path='/nutrition' element={ 
+                <Nutrition nutritions={nutritions}
+                            setNutritions={setNutritions} />} 
+            />
+            <Route path='/nutrition/record' element={ <RecordNutrition addNutrition={addNutrition} />} /> 
 
-          <Route path='/sleep' element={ 
-              <Sleep setAppState={setAppState}
-                     appState={appState} 
-                     user={appState?.user} 
-              />} 
-          />
+            <Route path='/sleep' element={ 
+                <Sleep />} 
+            />
 
-          <Route path="/login" element={
-              <Login setAppState={setAppState} 
-                     appState={appState} 
-                     user={appState?.user} 
-              />} 
-          />
-          <Route path="/register" element={
-              <SignUp setAppState={setAppState} 
-                      appState={appState} 
-                      user={appState?.user} 
-              />} 
-          />
-        </Routes>
-      </BrowserRouter>
-    </div>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<SignUp />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </AuthContext.Provider>
   );
 }
 
