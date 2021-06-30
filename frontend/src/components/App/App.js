@@ -3,6 +3,7 @@ import Home from "../Home/Home";
 import Activity from "../Activity/Activity";
 import Exercise from "../Exercise/Exercise";
 import CreateExercise from "../CreateExercise/CreateExercise";
+import RecordNutrition from "../RecordNutrition/RecordNutrition";
 import Nutrition from "../Nutrition/Nutrition";
 import Sleep from "../Sleep/Sleep";
 import Login from "../Login/Login";
@@ -19,29 +20,21 @@ function App() {
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
   const [exercises, setExercises] = useState([]);
+  const [nutritions, setNutritions] = useState([]); 
 
-  
-  //fetches exercises
-  useEffect(() => {
-    const fetchExercises = async () => {
-      setIsFetching(true);
-
-      const { data, error } = await apiClient.listExercises();
-      if(data) setExercises(data.exercises);
-      if(error) setError(error);
-
-      setIsFetching(false);
-    }
-
-    if (appState?.user) fetchExercises();
-
-  }, [appState?.user, exercises]); 
 
   //adds a new exercise to list of exercises
   const addExercise = (newExercise) => {
     setExercises((oldExercises) => [newExercise, ...oldExercises])
   }
 
+
+  //adds a new nutrition to list of nutritions
+  const addNutrition = (newNutrition) => {
+    setNutritions((oldNutrition) => [newNutrition, ...oldNutrition])
+  }
+
+  
   //persists logged in user
   useEffect(() => {
     const fetchAuthedUser = async () => {
@@ -76,6 +69,7 @@ function App() {
                         appState={appState} 
                         user={appState?.user} 
                         exercises={exercises}
+                        nutritions={nutritions}
               />} 
           />
 
@@ -84,6 +78,7 @@ function App() {
                         appState={appState} 
                         user={appState?.user} 
                         exercises={exercises}
+                        setExercises={setExercises}
               />} 
           />
           <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 
@@ -92,8 +87,11 @@ function App() {
               <Nutrition setAppState={setAppState} 
                          appState={appState} 
                          user={appState?.user} 
+                         nutritions={nutritions}
+                         setNutritions={setNutritions}
               />} 
           />
+          <Route path='/nutrition/record' element={ <RecordNutrition addNutrition={addNutrition} />} /> 
 
           <Route path='/sleep' element={ 
               <Sleep setAppState={setAppState}

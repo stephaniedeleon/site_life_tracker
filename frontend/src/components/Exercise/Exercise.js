@@ -1,13 +1,35 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import apiClient from "../../services/apiClient";
+
 import Login from "../Login/Login";
 import ExCard from "./ExCard/ExCard";
 import PageHeader from '../PageHeader/PageHeader';
 import "./Exercise.css";
 
-export default function Exercise({ user, setAppState, exercises }) {
+export default function Exercise({ user, setAppState, exercises, setExercises }) {
 
   const isAuthenticated = Boolean(user?.email);  
+  const [error, setError] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
 
+   //fetches exercises
+   useEffect(() => {
+    const fetchExercises = async () => {
+      setIsFetching(true);
+
+      const { data, error } = await apiClient.listExercises();
+      if(data) setExercises(data.exercises);
+      if(error) setError(error);
+
+      setIsFetching(false);
+    }
+
+    if (isAuthenticated) fetchExercises();
+
+  }, [isAuthenticated, setExercises]); 
+
+  
   return (
     <div className="Exercise">
       { isAuthenticated ? (
