@@ -29,12 +29,19 @@ class ApiClient {
     }
 
     async listExercises() {
-        console.log("listExercises");
         return await this.request({ endpoint: "exercise", method: "GET" });
     }
 
     async createExercise(details) { 
         return await this.request({ endpoint: "exercise/create/", method: "POST", data: details });
+    }
+
+    async listNutrition() {
+        return await this.request({ endpoint: "nutrition", method: "GET" });
+    }
+
+    async recordNutrition(details) { 
+        return await this.request({ endpoint: "nutrition/record/", method: "POST", data: details });
     }
 
     setToken(token) {

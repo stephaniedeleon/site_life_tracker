@@ -22,7 +22,7 @@ export default function Activity({ user, setAppState, exercises }) {
               <h1>Activity Feed</h1>
               <div className="addLinks">
                 <Link className="exercise" to='/exercise/create'>Add Exercise</Link>
-                <Link className="nutrition" to='/exercise/create'>Record Nutrition</Link>
+                <Link className="nutrition" to='/nutrition/record'>Record Nutrition</Link>
                 <Link className="sleep" to='/exercise/create'>Log Sleep</Link>
               </div>
             </div>
