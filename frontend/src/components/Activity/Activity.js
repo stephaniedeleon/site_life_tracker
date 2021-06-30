@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Login from "../Login/Login";
+import { Login } from "components";
 import "./Activity.css";
 
 export default function Activity({ user, setAppState, exercises }) {

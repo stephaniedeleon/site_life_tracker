@@ -1,5 +1,4 @@
-import Login from "../Login/Login";
-import PageHeader from '../PageHeader/PageHeader'
+import { Login, PageHeader } from "components";
 import "./Sleep.css";
 
 export default function Sleep({ user, setAppState }) {

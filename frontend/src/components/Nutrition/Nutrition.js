@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import apiClient from "../../services/apiClient";
+import apiClient from "services/apiClient";
 
-import Login from "../Login/Login";
-import PageHeader from '../PageHeader/PageHeader';
+import { Login, PageHeader } from "components";
 import NutritionCard from './NutritionCard/NutritionCard';
 import "./Nutrition.css";
 

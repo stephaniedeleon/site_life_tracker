@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
-import apiClient from "../../services/apiClient";
-import PageHeader from '../PageHeader/PageHeader';
+import apiClient from "services/apiClient";
+import { PageHeader } from "components";
 import "./RecordNutrition.css";
 
 

@@ -1,24 +1,13 @@
-import Navbar from "../Navbar/Navbar";
-import Home from "../Home/Home";
-import Activity from "../Activity/Activity";
-import Exercise from "../Exercise/Exercise";
-import CreateExercise from "../CreateExercise/CreateExercise";
-import RecordNutrition from "../RecordNutrition/RecordNutrition";
-import Nutrition from "../Nutrition/Nutrition";
-import Sleep from "../Sleep/Sleep";
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
-
+import { Navbar, Home, Activity, Exercise, CreateExercise, Nutrition, RecordNutrition, Sleep, Login, SignUp } from "components"; //in index.js
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import apiClient from "../../services/apiClient";
+import apiClient from "services/apiClient"; //possible with jsconfig.json
 import "./App.css";
 
 function App() {
 
   const [appState, setAppState] = useState({});
   const [error, setError] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
   const [exercises, setExercises] = useState([]);
   const [nutritions, setNutritions] = useState([]); 
 
@@ -34,7 +23,7 @@ function App() {
     setNutritions((oldNutrition) => [newNutrition, ...oldNutrition])
   }
 
-  
+
   //persists logged in user
   useEffect(() => {
     const fetchAuthedUser = async () => {

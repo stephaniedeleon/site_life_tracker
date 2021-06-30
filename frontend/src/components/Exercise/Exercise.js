@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import apiClient from "../../services/apiClient";
+import apiClient from "services/apiClient";
 
-import Login from "../Login/Login";
 import ExCard from "./ExCard/ExCard";
-import PageHeader from '../PageHeader/PageHeader';
+import { Login, PageHeader } from "components";
 import "./Exercise.css";
 
 export default function Exercise({ user, setAppState, exercises, setExercises }) {
