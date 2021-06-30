@@ -35,8 +35,12 @@ function App() {
 
     if (appState?.user) fetchExercises();
 
-  }, [appState?.user]); 
+  }, [appState?.user, exercises]); 
 
+  //adds a new exercise to list of exercises
+  const addExercise = (newExercise) => {
+    setExercises((oldExercises) => [newExercise, ...oldExercises])
+  }
 
   //persists logged in user
   useEffect(() => {
@@ -79,10 +83,10 @@ function App() {
               <Exercise setAppState={setAppState} 
                         appState={appState} 
                         user={appState?.user} 
-                        exercises={exercises} 
+                        exercises={exercises}
               />} 
           />
-          <Route path='/exercise/create' element={ <CreateExercise />} /> 
+          <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 
           
           <Route path='/nutrition' element={ 
               <Nutrition setAppState={setAppState} 

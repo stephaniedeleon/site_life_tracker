@@ -5,7 +5,7 @@ import PageHeader from '../PageHeader/PageHeader';
 import "./CreateExercise.css";
 
 
-export default function CreateExercise() { //{ addExercise }
+export default function CreateExercise({ addExercise }) { //{ addExercise }
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false)
@@ -41,6 +41,7 @@ export default function CreateExercise() { //{ addExercise }
             setErrors((e) => ({ ...e, form: error }));
         } else {
             setErrors((e) => ({ ...e, form: null }));
+            addExercise(data);
             navigate("/exercise");
         } 
 
