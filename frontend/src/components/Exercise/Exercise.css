@@ -1,4 +1,39 @@
+.Exercise .exercise-area {
+    margin: 20px 110px;
+}
+
+.Exercise .exercise-area .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Exercise .exercise-area .title h1 {
+    font-size: 38px;
+}
+
+.Exercise .exercise-area .title a {
+    font-family: "Varela", serif;
+    font-size: 17px;
+    border-radius: 4px;
+    padding: 8px 14px;
+    border: 1px solid;
+    background-color:  #fff8ae;
+    color: #2c4147;
+}
+
+.Exercise .exercise-area .title a:hover {
+    background-color: #fffdec;
+
+}
+
+.Exercise .overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .Exercise .warning {
-    margin-top: 50px;
+    margin-top: 30px;
     color: red;
 }

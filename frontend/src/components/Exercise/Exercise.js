@@ -11,20 +11,23 @@ export default function Exercise({ user, setAppState, exercises }) {
   return (
     <div className="Exercise">
       { isAuthenticated ? (
-        <div className="exercise-area">
-          <PageHeader sectionName="Exercise"/>
-          <div className="title">
-            <h1>Overview</h1>
-            <Link to='/exercise/create'>Add Exercise</Link>
+        <>
+          <PageHeader className="one" sectionName="Exercise"/>
+
+          <div className="exercise-area">
+            <div className="title">
+              <h1>Overview</h1>
+              <Link to='/exercise/create'>Add Exercise</Link>
+            </div>
+            <br/>
+            <br/>
+            <div className="overview">
+              {exercises.map((exercise) => (
+                <ExCard key={exercise.id} exercise={exercise} />
+              ))}
+            </div>
           </div>
-          <br/>
-          <br/>
-          <div className="overview">
-            {exercises.map((exercise) => (
-              <ExCard key={exercise.id} exercise={exercise} />
-            ))}
-          </div>
-        </div>
+        </>
       ) : (
         <div> 
           <p className="warning">You must be logged in to access this page.</p>
