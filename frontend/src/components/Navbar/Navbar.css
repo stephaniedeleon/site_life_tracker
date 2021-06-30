@@ -46,7 +46,7 @@
     font-size: 15px;
     border-radius: 4px;
     padding: 8px 14px;
-    border: 1px solid #00c98e;
+    border: 1px solid #00bdaa;
     background-color: #00c98e;
 }
 
@@ -55,14 +55,14 @@
     font-size: 15px;
     border-radius: 4px;
     padding: 8px 14px;
-    border: 1px solid #00c98e;
+    border: 1px solid #00bdaa;
 }
 
 .Navbar .nav .logout {
     font-family: "Varela", serif;
     padding: 8px 14px;
     margin: 0px 20px;
-    border: 1px solid #00c98e;
+    border: 1px solid #00bdaa;
     border-radius: 4px;
     font-size: 15px;
     color: #2c4147;

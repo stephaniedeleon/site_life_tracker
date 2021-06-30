@@ -21,7 +21,7 @@
     color: #2c4147;
     margin-left: 18px;
     transition: all 0.2s ease 0s;
-    background: linear-gradient(64.7deg, #fff8ae, #fffdec);
+    background: radial-gradient(#ffff, #d9fffd);
 }
 
 .Exercise .exercise-area .title a:hover {
