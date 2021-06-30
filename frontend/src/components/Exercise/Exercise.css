@@ -17,14 +17,16 @@
     font-size: 17px;
     border-radius: 4px;
     padding: 8px 14px;
-    border: 1px solid;
-    background-color:  #fff8ae;
+    border: 1px solid rgb(203, 203, 203);
     color: #2c4147;
+    margin-left: 18px;
+    transition: all 0.2s ease 0s;
+    background: linear-gradient(64.7deg, #fff8ae, #fffdec);
 }
 
 .Exercise .exercise-area .title a:hover {
-    background-color: #fffdec;
-
+    border: 1px solid;
+    border-radius: 12px;
 }
 
 .Exercise .overview {

@@ -21,9 +21,10 @@
     font-size: 17px;
     border-radius: 4px;
     padding: 8px 14px;
-    border: 1px solid;
+    border: 1px solid rgb(203, 203, 203);
     color: #2c4147;
     margin-left: 18px;
+    transition: all 0.2s ease 0s;
 }
 
 .Activity .activity-area .title .addLinks {
@@ -32,19 +33,20 @@
 }
 
 .Activity .activity-area .title .addLinks .exercise {
-    background-color: #fff8ae;
+    background: linear-gradient(64.7deg, #fff8ae, #fffdec);
 }
 
 .Activity .activity-area .title .addLinks .nutrition {
-    background-color: #FFAFBD;
+    background: linear-gradient(64.7deg, #FFAFBD, #ffc3a0);
 }
 
 .Activity .activity-area .title .addLinks .sleep {
-    background-color: #0ed2f7;
+    background: linear-gradient(64.7deg, #65c7f7, #b2fefa);
 }
 
 .Activity .activity-area .title .addLinks a:hover {
-    background-color: #f9f8f8;
+    border: 1px solid;
+    border-radius: 12px;
 }
 
 .Activity .overview {
@@ -53,7 +55,7 @@
     justify-content: space-around;
 }
 
-.Activity .sumcard {
+.Activity .sumCard {
     margin: 20px;
     padding: 23px;
     width: 300px;
@@ -65,25 +67,25 @@
     font-family: Hind Vadodara, sans-serif;
 }
 
-.Activity .sumcard.exercise, .Activity .sumCard2.exercise{
+.Activity .sumCard.exercise, .Activity .sumCard2.exercise{
     background: linear-gradient(64.7deg, #fff8ae, #fffdec);
 }
 
-.Activity .sumcard.nutrition, .Activity .sumCard2.nutrition {
+.Activity .sumCard.nutrition, .Activity .sumCard2.nutrition {
     background: linear-gradient(64.7deg, #FFAFBD, #ffc3a0);
 }
 
-.Activity .sumcard.sleep, .Activity .sumCard2.sleep {
+.Activity .sumCard.sleep, .Activity .sumCard2.sleep {
     /* background: linear-gradient(64.7deg, #0ed2f7, #b2fefa); */
     background: linear-gradient(64.7deg, #65c7f7, #b2fefa);
 }
 
-.Activity .sumcard .valueName {
+.Activity .sumCard .valueName {
     grid-row: 1;
     font-size: 20px;
 }
 
-.Activity .sumcard .value {
+.Activity .sumCard .value {
     grid-row: 4/5;
     font-size: 45px;
 }
