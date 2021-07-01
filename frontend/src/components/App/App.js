@@ -17,6 +17,9 @@ function App() {
   const [nutritions, setNutritions] = useState([]); 
   const [sleeps, setSleeps] = useState([]); 
 
+  const [totalExerciseTime, setTotalExerciseTime] = useState(0);
+
+
 
   //adds a new exercise to list of exercises
   const addExercise = (newExercise) => {
@@ -55,6 +58,19 @@ function App() {
   }, []);
 
 
+  /** Fetch total exercise time by user */
+  useEffect(() => {
+    const fetchExerciseTime = async () => {
+      const { data, error } = await apiClient.fetchTotalExerciseTime();
+      if (data?.totalTime) setTotalExerciseTime(data.totalTime);
+      if(error) setError(error);
+    }
+
+    fetchExerciseTime();
+
+  }, [exercises]);
+
+
   return (
     <AuthContext.Provider value={{ setAppState, appState, user, setUser, authenticated, setAuthenticated }}>
       <div className="App">
@@ -64,7 +80,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
 
-            <Route path='/activity' element={ <ProtectedRoute element={<Activity />} />} />
+            <Route path='/activity' element={ <ProtectedRoute element={<Activity totalExerciseTime={totalExerciseTime} />} />} />
 
             <Route path='/exercise' element={ <ProtectedRoute element={<Exercise exercises={exercises} setExercises={setExercises} />} />} />
             <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 

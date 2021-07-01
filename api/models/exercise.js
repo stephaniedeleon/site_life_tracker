@@ -3,6 +3,7 @@ const { BadRequestError } = require("../utils/errors");
 
 class Exercise {
     
+    /** Fetch all exercises */
     static async listExerciseForUser(user) {
         //return all orders that the authenticated user has created
         const query = `
@@ -16,6 +17,7 @@ class Exercise {
     }
 
 
+    /** Creating a new exercise */
     static async createExercise({ user, exercise }) {
 
         const requiredFields = ["name", "category", "duration", "intensity"];
@@ -44,11 +46,18 @@ class Exercise {
     }
 
 
-    // const query = `
-    //     SELECT SUM(duration) FROM exercises
-    //     WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
-    // `
-    // const result = await db.query(query, [user.email]);
+    /** Fetch total exercise time */
+    static async getTotalExerciseTime({ user }) {
+
+        const query = `
+            SELECT SUM(duration) as "totalTime" 
+            FROM exercises
+            WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    }
 
 }
 

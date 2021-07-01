@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import "./Activity.css";
 
-export default function Activity() {
+export default function Activity({ totalExerciseTime }) {
 
   return (
     <div className="Activity"> 
@@ -19,7 +19,7 @@ export default function Activity() {
         <div className="overview">
             <div className="sumCard exercise">
                 <h3 className="valueName">Total Exercise Minutes</h3>
-                <p className="value">0</p>
+                <p className="value">{totalExerciseTime}</p>
             </div>
 
             <div className="sumCard nutrition">

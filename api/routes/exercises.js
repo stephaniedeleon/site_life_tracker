@@ -7,7 +7,7 @@ const { requireAuthenticatedUser } = require("../middleware/security.js");
 //      before our route handler is called. (you can do this for any function)
 // requireAuthenticatedUser - if user does not exist, it will throw an error
 
-//List exercises...
+/** Listing exercises */
 router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -21,7 +21,7 @@ router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 });
 
 
-//Creating a new exercise
+/** Creating a new exercise */
 router.post("/create", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -31,6 +31,20 @@ router.post("/create", requireAuthenticatedUser, async (req, res, next) => {
 
     } catch(err) {
         next(err);
+    }
+});
+
+
+/** Total minutes */
+router.get('/total', requireAuthenticatedUser, async (req, res, next) => {
+
+    try {
+        const user = res.locals.user;
+        const totalTime = await Exercise.getTotalExerciseTime({ user });
+        res.status(201).json(totalTime);
+
+    } catch (err) {
+      next(err);
     }
 });
 

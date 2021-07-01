@@ -38,6 +38,10 @@ class ApiClient {
         return await this.request({ endpoint: "exercise/create/", method: "POST", data: details });
     }
 
+    async fetchTotalExerciseTime() { 
+        return await this.request({ endpoint: "exercise/total/", method: "GET" });
+    }
+
     //Nutrition
 
     async listNutrition() {
