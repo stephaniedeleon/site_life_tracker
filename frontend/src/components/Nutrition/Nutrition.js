@@ -6,15 +6,14 @@ import AuthContext from "contexts/auth";
 
 import apiClient from "services/apiClient";
 
-import { Login, PageHeader } from "components";
+import { PageHeader } from "components";
 import NutritionCard from './NutritionCard/NutritionCard';
 import "./Nutrition.css";
 
 export default function Nutrition({ nutritions, setNutritions }) {
 
-  const { user, setAppState } = useContext(AuthContext);
+  const { authenticated } = useContext(AuthContext);
 
-  const isAuthenticated = Boolean(user?.email);
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -30,37 +29,28 @@ export default function Nutrition({ nutritions, setNutritions }) {
       setIsFetching(false);
     }
 
-    if (isAuthenticated) fetchNutritions();
+    if (authenticated) fetchNutritions();
   
-  }, [isAuthenticated, setNutritions]);
+  }, [authenticated, setNutritions]);
 
   
   return (
     <div className="Nutrition">
-        { isAuthenticated ? (
-          <> 
-            <PageHeader sectionName="Nutrition"/>
+      <PageHeader sectionName="Nutrition"/>
 
-            <div className="nutrition-area">
-              <div className="title">
-                <h1>Overview</h1>
-                <Link to='/nutrition/record'>Record Nutrition</Link>
-              </div>
-              <br/>
-              <br/>
-              <div className="overview">
-                {nutritions.map((nutrition) => (
-                  <NutritionCard key={nutrition.id} nutrition={nutrition} />
-                ))}
-              </div>
-            </div>
-          </>
-      ) : (
-        <div> 
-          <p className="warning">You must be logged in to access this page.</p>
-          <Login setAppState={setAppState}/>
+      <div className="nutrition-area">
+        <div className="title">
+          <h1>Overview</h1>
+          <Link to='/nutrition/record'>Record Nutrition</Link>
         </div>
-    ) }
+        <br/>
+        <br/>
+        <div className="overview">
+          {nutritions.map((nutrition) => (
+            <NutritionCard key={nutrition.id} nutrition={nutrition} />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

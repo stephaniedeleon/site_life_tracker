@@ -8,7 +8,7 @@ import apiClient from "services/apiClient";
 
 export const useSignUpForm = () => {
 
-    const { setAppState, setUser } = useContext(AuthContext);
+    const { setAppState, setUser, setAuthenticated } = useContext(AuthContext);
 
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
@@ -75,6 +75,7 @@ export const useSignUpForm = () => {
       if (data?.user) {
         setAppState(data);
         setUser(data.user);
+        setAuthenticated(true);
         apiClient.setToken(data.token);
         navigate("/activity"); // after logging in, navigates to activity
       }

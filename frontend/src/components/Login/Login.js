@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useLoginForm } from "hooks/useLoginForm";
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ message }) {
 
   const { form, errors, isLoading, handleOnInputChange, handleOnSubmit } = useLoginForm();
   
@@ -12,7 +12,7 @@ export default function Login() {
 
             <h2>Login</h2>
             {/* shows error at the top of the form */}
-            {Boolean(errors.form) && <span className="error">{errors.form}</span>}
+            {Boolean(errors.form || message) && <span className="error">{errors.form || message}</span>}
             <br/>
 
             <div className="form">

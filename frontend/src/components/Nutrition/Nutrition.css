@@ -34,8 +34,3 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
-.Nutrition .warning {
-    margin-top: 30px;
-    color: red;
-}

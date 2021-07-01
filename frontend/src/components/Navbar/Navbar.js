@@ -6,16 +6,16 @@ import "./Navbar.css";
 
 export default function Navbar() {
 
-  const { user, setAppState, setUser } = useContext(AuthContext);
+  const { setAppState, setUser, authenticated, setAuthenticated } = useContext(AuthContext);
   
   const navigate = useNavigate();
-  const isAuthenticated = Boolean(user?.email);
 
   //logs out the user
   const handleOnLogout = async () => {
     await apiClient.logoutUser();
     setAppState({});
     setUser({});
+    setAuthenticated(false);
     navigate("/");
   }
 
@@ -33,7 +33,7 @@ export default function Navbar() {
                 <Link to='/sleep'>Sleep</Link>
                 {/* if user is not authenticated or logged in, it will show the log in and register
                   - if yes, it will show log out  */}
-                { !isAuthenticated ? (
+                { !authenticated ? (
                   <div> 
                     <Link to='/login' className='login-link'>Sign In</Link>
                     <Link to='/register' className='register-link'>Sign Up</Link>

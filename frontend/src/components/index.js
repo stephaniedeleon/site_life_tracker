@@ -15,3 +15,5 @@ export {default as Login } from "./Login/Login";
 export {default as SignUp } from "./SignUp/SignUp";
 
 export {default as PageHeader } from "./PageHeader/PageHeader";
+export {default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+
