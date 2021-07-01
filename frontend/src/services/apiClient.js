@@ -28,6 +28,8 @@ class ApiClient {
         }
     }
 
+    //Exercises
+
     async listExercises() {
         return await this.request({ endpoint: "exercise", method: "GET" });
     }
@@ -36,6 +38,8 @@ class ApiClient {
         return await this.request({ endpoint: "exercise/create/", method: "POST", data: details });
     }
 
+    //Nutrition
+
     async listNutrition() {
         return await this.request({ endpoint: "nutrition", method: "GET" });
     }
@@ -43,6 +47,18 @@ class ApiClient {
     async recordNutrition(details) { 
         return await this.request({ endpoint: "nutrition/record/", method: "POST", data: details });
     }
+
+    //Sleep
+
+    async listSleep() {
+        return await this.request({ endpoint: "sleep", method: "GET" });
+    }
+
+    async logSleep(details) { 
+        return await this.request({ endpoint: "sleep/log/", method: "POST", data: details });
+    }
+
+    //User stuff
 
     setToken(token) {
         this.token = token;

@@ -10,6 +10,7 @@ export {default as Nutrition } from "./Nutrition/Nutrition";
 export {default as RecordNutrition } from "./RecordNutrition/RecordNutrition";
 
 export {default as Sleep } from "./Sleep/Sleep";
+export {default as LogSleep } from "./LogSleep/LogSleep";
 
 export {default as Login } from "./Login/Login";
 export {default as SignUp } from "./SignUp/SignUp";

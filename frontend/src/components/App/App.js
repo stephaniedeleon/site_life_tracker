@@ -1,4 +1,4 @@
-import { Navbar, Home, Activity, Exercise, CreateExercise, Nutrition, RecordNutrition, Sleep, Login, SignUp, ProtectedRoute } from "components"; //in index.js
+import { Navbar, Home, Activity, Exercise, CreateExercise, Nutrition, RecordNutrition, Sleep, LogSleep, Login, SignUp, ProtectedRoute } from "components"; //in index.js
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import apiClient from "services/apiClient"; //possible with jsconfig.json
@@ -15,6 +15,7 @@ function App() {
 
   const [exercises, setExercises] = useState([]);
   const [nutritions, setNutritions] = useState([]); 
+  const [sleeps, setSleeps] = useState([]); 
 
 
   //adds a new exercise to list of exercises
@@ -27,6 +28,11 @@ function App() {
     setNutritions((oldNutrition) => [newNutrition, ...oldNutrition])
   }
 
+  //adds a new sleep to list of sleeps
+  const addSleep = (newSleep) => {
+    setSleeps((oldSleep) => [newSleep, ...oldSleep])
+  }
+  
 
   //persists logged in user
   useEffect(() => {
@@ -66,7 +72,9 @@ function App() {
             <Route path='/nutrition' element={ <ProtectedRoute element={<Nutrition nutritions={nutritions} setNutritions={setNutritions} />} />} />
             <Route path='/nutrition/record' element={ <RecordNutrition addNutrition={addNutrition} />} /> 
 
-            <Route path='/sleep' element={ <ProtectedRoute element={<Sleep />} />} />
+            <Route path='/sleep' element={ <ProtectedRoute element={<Sleep sleeps={sleeps} setSleeps={setSleeps} />} />} />
+            <Route path='/sleep/log' element={ <LogSleep addSleep={addSleep} />} /> 
+
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<SignUp />} />

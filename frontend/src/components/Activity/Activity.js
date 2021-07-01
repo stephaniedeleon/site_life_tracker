@@ -12,7 +12,7 @@ export default function Activity() {
           <div className="addLinks">
             <Link className="exercise" to='/exercise/create'>Add Exercise</Link>
             <Link className="nutrition" to='/nutrition/record'>Record Nutrition</Link>
-            <Link className="sleep" to='/exercise/create'>Log Sleep</Link>
+            <Link className="sleep" to='/sleep/log'>Log Sleep</Link>
           </div>
         </div>
         <br/>

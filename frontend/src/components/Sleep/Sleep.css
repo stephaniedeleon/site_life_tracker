@@ -1,0 +1,36 @@
+.Sleep .sleep-area {
+    margin: 20px 110px;
+}
+
+.Sleep .sleep-area .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Sleep .sleep-area .title h1 {
+    font-size: 38px;
+}
+
+.Sleep .sleep-area .title a {
+    font-family: "Varela", serif;
+    font-size: 17px;
+    border-radius: 4px;
+    padding: 8px 14px;
+    border: 1px solid rgb(203, 203, 203);
+    color: #2c4147;
+    margin-left: 18px;
+    transition: all 0.2s ease 0s;
+    background: radial-gradient(#ffff, #d3e3fc);
+}
+
+.Sleep .sleep-area .title a:hover {
+    border: 1px solid;
+    border-radius: 12px;
+}
+
+.Sleep .overview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

@@ -1,0 +1,49 @@
+.SleepCard .card {
+    margin: 20px;
+    padding: 30px;
+    width: 400px;
+    min-height: 220px;
+    display: grid;
+    grid-template-rows: 5px 5px 1fr 12px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(64.7deg, #77A6F7, #d3e3fc);
+    font-family: Hind Vadodara, sans-serif;
+}
+
+.SleepCard .card .title {
+    grid-row: 2/3;
+    font-size: 22px;
+}
+
+.SleepCard .card .details {
+    margin-top: 12px;
+    grid-row: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.SleepCard .card .details .valueName {
+    margin-bottom: 0;
+    font-size: 21px;
+}
+
+.SleepCard .card .details .value {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 38px;
+}
+
+.SleepCard .extra_details {
+    grid-row: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.SleepCard .extra_details .hours {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 4px 12px;
+}
