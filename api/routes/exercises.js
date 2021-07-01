@@ -40,7 +40,7 @@ router.get('/total', requireAuthenticatedUser, async (req, res, next) => {
 
     try {
         const user = res.locals.user;
-        const totalTime = await Exercise.getTotalExerciseTime({ user });
+        const totalTime = await Exercise.getTotalExerciseTime(user);
         res.status(201).json(totalTime);
 
     } catch (err) {

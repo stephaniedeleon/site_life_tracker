@@ -47,7 +47,7 @@ class Exercise {
 
 
     /** Fetch total exercise time */
-    static async getTotalExerciseTime({ user }) {
+    static async getTotalExerciseTime(user) {
 
         const query = `
             SELECT SUM(duration) as "totalTime" 
