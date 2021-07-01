@@ -37,10 +37,12 @@ class User {
             const isValid = await bcrypt.compare(credentials.password, user.password)
             if (isValid) {
                 return User.makePublicUser(user)
+            } else {
+                throw new UnauthorizedError("Email/password do not match.")
             }
         }
 
-        throw new UnauthorizedError("Email/password do not match")
+        throw new UnauthorizedError("This user does not exist.")
     }
 
 
