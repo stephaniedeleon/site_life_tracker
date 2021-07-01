@@ -22,7 +22,7 @@ router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 
 
 //Record a new sleep log
-router.post("/record", requireAuthenticatedUser, async (req, res, next) => {
+router.post("/log", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
         const user = res.locals.user;
