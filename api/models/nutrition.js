@@ -44,6 +44,14 @@ class Nutrition {
         return result.rows[0];
     }
 
+
+    // const query = `
+    //     SELECT COUNT(id) FROM nutritions
+    //     SELECT SUM(id) FROM nutritions
+    //     WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1) AND nutritions....
+    // `
+    // const result = await db.query(query, [user.email]);
+
 }
 
 module.exports = Nutrition;

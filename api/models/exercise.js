@@ -9,7 +9,6 @@ class Exercise {
             SELECT * FROM exercises
             WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
         `
-
         const result = await db.query(query, [user.email]);
 
         //return exercises
@@ -43,6 +42,13 @@ class Exercise {
         //return exercise
         return result.rows[0];
     }
+
+
+    // const query = `
+    //     SELECT SUM(duration) FROM exercises
+    //     WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
+    // `
+    // const result = await db.query(query, [user.email]);
 
 }
 
