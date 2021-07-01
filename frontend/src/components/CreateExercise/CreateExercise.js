@@ -5,7 +5,7 @@ import { PageHeader } from "components";
 import "./CreateExercise.css";
 
 
-export default function CreateExercise({ addExercise }) { //{ addExercise }
+export default function CreateExercise({ addExercise }) {
 
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false)

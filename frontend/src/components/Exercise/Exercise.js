@@ -7,7 +7,7 @@ import AuthContext from "contexts/auth";
 import apiClient from "services/apiClient";
 
 import ExCard from "./ExCard/ExCard";
-import { Login, PageHeader } from "components";
+import { PageHeader } from "components";
 import "./Exercise.css";
 
 export default function Exercise({ exercises, setExercises }) {
@@ -37,7 +37,7 @@ export default function Exercise({ exercises, setExercises }) {
   
   return (
     <div className="Exercise">
-      <PageHeader className="one" sectionName="Exercise"/>
+      <PageHeader sectionName="Exercise"/>
 
       <div className="exercise-area">
         <div className="title">
