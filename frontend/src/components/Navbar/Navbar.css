@@ -47,7 +47,8 @@
     border-radius: 4px;
     padding: 8px 14px;
     border: 1px solid #00bdaa;
-    background-color: #00c98e;
+    background: radial-gradient(#ffff, #83ffd4cf);
+    transition: all 0.2s ease 0s;
 }
 
 .Navbar .nav .login-link {
@@ -56,6 +57,7 @@
     border-radius: 4px;
     padding: 8px 14px;
     border: 1px solid #00bdaa;
+    transition: all 0.2s ease 0s;
 }
 
 .Navbar .nav .logout {
@@ -68,19 +70,27 @@
     color: #2c4147;
     cursor: pointer;
     background-color: transparent;
+    transition: all 0.2s ease 0s;
 }
 
 .Navbar .nav .login-link:hover {
-    background-color: #00c98e;
     text-decoration: none;
+    background: radial-gradient(#ffff, #83ffd4cf);
+    border-radius: 12px;
 }
 
 .Navbar .nav .register-link:hover {
-    border: 1px solid #00c98e;
-    background-color: transparent;
+    background: #baffe7;
+    border-radius: 12px;
     text-decoration: none;
 }
 
 .Navbar .nav .logout:hover {
-    background-color: #00c98e;
+    background: radial-gradient(#ffff, #83ffd4cf);
+    border-radius: 12px;
+}
+
+.Activity .activity-area .title .addLinks a:hover {
+    border: 1px solid;
+    border-radius: 12px;
 }
