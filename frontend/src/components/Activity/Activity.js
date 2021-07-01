@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import "./Activity.css";
 
-export default function Activity({ totalExerciseTime }) {
+export default function Activity({ totalExerciseTime, averageCalories, avgSleepHours }) {
 
   return (
     <div className="Activity"> 
@@ -23,13 +23,13 @@ export default function Activity({ totalExerciseTime }) {
             </div>
 
             <div className="sumCard nutrition">
-                <h3 className="valueName">Avg Daily Calories</h3>
-                <p className="value">0</p>
+                <h3 className="valueName">Avg Calories</h3>
+                <p className="value">{averageCalories}</p>
             </div>
 
             <div className="sumCard sleep">
                 <h3 className="valueName">Avg Sleep Hours</h3>
-                <p className="value">0</p>
+                <p className="value">{avgSleepHours}</p>
             </div>
         </div>
 

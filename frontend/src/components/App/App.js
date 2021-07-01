@@ -18,7 +18,8 @@ function App() {
   const [sleeps, setSleeps] = useState([]); 
 
   const [totalExerciseTime, setTotalExerciseTime] = useState(0);
-
+  const [averageCalories, setAverageCalories] = useState(0);
+  const [avgSleepHours, setAvgSleepHours] = useState(0);
 
 
   //adds a new exercise to list of exercises
@@ -60,6 +61,7 @@ function App() {
 
   /** Fetch total exercise time by user */
   useEffect(() => {
+
     const fetchExerciseTime = async () => {
       const { data, error } = await apiClient.fetchTotalExerciseTime();
       if (data?.totalTime) setTotalExerciseTime(data.totalTime);
@@ -71,6 +73,34 @@ function App() {
   }, [exercises]);
 
 
+  /** Fetch average calories by user */
+  useEffect(() => {
+
+    const fetchAvgCalories = async () => {
+      const { data, error } = await apiClient.fetchAvgCalories();
+      if (data?.avgCalories) setAverageCalories(parseFloat(data.avgCalories).toFixed(1));
+      if(error) setError(error);
+    }
+
+    fetchAvgCalories();
+
+  }, [nutritions]);
+
+
+  /** Fetch average sleep hours by user */
+  useEffect(() => {
+    
+    const fetchAvgSleepHours = async () => {
+      const { data, error } = await apiClient.fetchAvgSleepHours();
+      if (data?.avgSleepHours) setAvgSleepHours(parseFloat(data.avgSleepHours).toFixed(1));
+      if(error) setError(error);
+    }
+
+    fetchAvgSleepHours();
+
+  }, [sleeps]);
+
+
   return (
     <AuthContext.Provider value={{ setAppState, appState, user, setUser, authenticated, setAuthenticated }}>
       <div className="App">
@@ -80,7 +110,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
 
-            <Route path='/activity' element={ <ProtectedRoute element={<Activity totalExerciseTime={totalExerciseTime} />} />} />
+            <Route path='/activity' element={ <ProtectedRoute element={<Activity totalExerciseTime={totalExerciseTime} averageCalories={averageCalories} avgSleepHours={avgSleepHours} />} />} />
 
             <Route path='/exercise' element={ <ProtectedRoute element={<Exercise exercises={exercises} setExercises={setExercises} />} />} />
             <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 

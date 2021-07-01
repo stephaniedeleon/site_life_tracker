@@ -3,6 +3,7 @@ const { BadRequestError } = require("../utils/errors");
 
 class Nutrition {
     
+    /** Fetch all nutritions */
     static async listNutritionForUser(user) {
         //return all orders that the authenticated user has created
         const query = `
@@ -17,6 +18,7 @@ class Nutrition {
     }
 
 
+    /** Recording a new nutrition */
     static async createNutrition({ user, nutrition }) {
 
         const requiredFields = ["name", "category", "quantity", "calories"];
@@ -45,13 +47,18 @@ class Nutrition {
     }
 
 
-    // const query = `
-    //     SELECT COUNT(id) FROM nutritions
-    //     SELECT SUM(id) FROM nutritions
-    //     WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1) AND nutritions....
-    // `
-    // const result = await db.query(query, [user.email]);
+    /** Fetch average calories */
+    static async getAvgCalories(user) {
 
+        const query = `
+            SELECT AVG(calories) as "avgCalories" 
+            FROM nutritions
+            WHERE nutritions.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    }    
 }
 
 module.exports = Nutrition;

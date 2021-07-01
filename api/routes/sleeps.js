@@ -7,7 +7,7 @@ const { requireAuthenticatedUser } = require("../middleware/security.js");
 //      before our route handler is called. (you can do this for any function)
 // requireAuthenticatedUser - if user does not exist, it will throw an error
 
-//List sleep logs...
+/** Listing sleep logs  */
 router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -21,7 +21,7 @@ router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 });
 
 
-//Record a new sleep log
+/** Recording a new sleep log  */
 router.post("/log", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -30,6 +30,21 @@ router.post("/log", requireAuthenticatedUser, async (req, res, next) => {
         res.status(201).json({ sleep });
 
     } catch(err) {
+        next(err);
+    }
+});
+
+
+/** Average sleep hours  */
+router.get("/average", requireAuthenticatedUser, async (req, res, next) => {
+
+    try {
+        const user = res.locals.user;
+        const avgSleepHours = await Sleep.getAvgSleepHours(user);
+        res.status(200).json(avgSleepHours);
+
+    } catch(err) {
+        console.log(err);
         next(err);
     }
 });

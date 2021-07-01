@@ -7,7 +7,7 @@ const { requireAuthenticatedUser } = require("../middleware/security.js");
 //      before our route handler is called. (you can do this for any function)
 // requireAuthenticatedUser - if user does not exist, it will throw an error
 
-//List nutrition...
+/** Listing nutriton  */
 router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -21,7 +21,7 @@ router.get("/", requireAuthenticatedUser, async (req, res, next) => {
 });
 
 
-//Record a new nutrition
+/** Recording a new nutrition  */
 router.post("/record", requireAuthenticatedUser, async (req, res, next) => {
 
     try {
@@ -30,6 +30,21 @@ router.post("/record", requireAuthenticatedUser, async (req, res, next) => {
         res.status(201).json({ nutrition });
 
     } catch(err) {
+        next(err);
+    }
+});
+
+
+/** Average calories  */
+router.get("/average", requireAuthenticatedUser, async (req, res, next) => {
+
+    try {
+        const user = res.locals.user;
+        const avgCalories = await Nutrition.getAvgCalories(user);
+        res.status(200).json(avgCalories);
+
+    } catch(err) {
+        console.log(err);
         next(err);
     }
 });

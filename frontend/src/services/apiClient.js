@@ -52,6 +52,10 @@ class ApiClient {
         return await this.request({ endpoint: "nutrition/record/", method: "POST", data: details });
     }
 
+    async fetchAvgCalories() { 
+        return await this.request({ endpoint: "nutrition/average/", method: "GET" });
+    }
+
     //Sleep
 
     async listSleep() {
@@ -60,6 +64,10 @@ class ApiClient {
 
     async logSleep(details) { 
         return await this.request({ endpoint: "sleep/log/", method: "POST", data: details });
+    }
+
+    async fetchAvgSleepHours() { 
+        return await this.request({ endpoint: "sleep/average/", method: "GET" });
     }
 
     //User stuff

@@ -3,6 +3,7 @@ const { BadRequestError } = require("../utils/errors");
 
 class Sleep {
     
+    /** Fetch all sleep hours */
     static async listSleepForUser(user) {
         //return all sleep logs that the authenticated user has created
         const query = `
@@ -16,7 +17,7 @@ class Sleep {
         return result.rows;
     }
 
-
+    /** Logging a sleep */
     static async logSleep({ user, sleep }) {
 
         const requiredFields = ["startTime", "endTime"];
@@ -42,6 +43,19 @@ class Sleep {
         return result.rows[0];
     }
 
+
+    /** Fetch average sleep hours */
+    static async getAvgSleepHours(user) {
+
+        const query = `
+            SELECT AVG(hours) as "avgSleepHours" 
+            FROM sleeps
+            WHERE sleeps.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    }  
 }
 
 module.exports = Sleep;
