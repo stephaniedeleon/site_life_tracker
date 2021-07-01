@@ -30,3 +30,14 @@ CREATE TABLE nutritions (
     created_at    TIMESTAMP NOT NULL DEFAULT NOW(),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE sleeps (
+    id            SERIAL PRIMARY KEY,
+    user_id       INTEGER NOT NULL,
+    date          DATE NOT NULL,
+    start_time    DATETIME NOT NULL,
+    end_time      DATETIME NOT NULL,
+    hours         INTEGER NOT NULL DEFAULT 1,
+    created_at    TIMESTAMP NOT NULL DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

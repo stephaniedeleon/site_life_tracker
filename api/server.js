@@ -7,6 +7,7 @@ const security = require("./middleware/security");
 const authRoutes = require("./routes/auth");
 const exercisesRoutes = require("./routes/exercises");
 const nutritionRoutes = require("./routes/nutritions");
+const sleepRoutes = require("./routes/sleeps");
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(security.extractUserFromJwt);
 app.use("/auth", authRoutes);
 app.use("/exercise", exercisesRoutes);
 app.use("/nutrition", nutritionRoutes);
+app.use("/sleep", sleepRoutes);
 
 
 /** Handle 404 errors -- this matches everything */
