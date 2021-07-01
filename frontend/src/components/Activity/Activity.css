@@ -68,22 +68,15 @@
     font-family: Hind Vadodara, sans-serif;
 }
 
-.Activity .sumCard.exercise, .Activity .sumCard2.exercise{
-    /* background: linear-gradient(64.7deg, #fff8ae, #fffdec); */
-    /* background: linear-gradient(64.7deg, #3bffeb, #fff0eb); */
+.Activity .sumCard.exercise, .Activity .sumCard2.exercise {
     background: linear-gradient(64.7deg, #65c7f7, #d9fffd);
 }
 
 .Activity .sumCard.nutrition, .Activity .sumCard2.nutrition {
-    /* background: linear-gradient(64.7deg, #FFAFBD, #ffeef1); */
-    /* background: linear-gradient(64.7deg, #d6adff, #f0e1ff); */
     background: linear-gradient(64.7deg, #ffccbc, #fff0eb);
-    /* #ffc3a0 */
 }
 
 .Activity .sumCard.sleep, .Activity .sumCard2.sleep {
-    /* background: linear-gradient(64.7deg, #0ed2f7, #b2fefa); */
-    /* background: linear-gradient(64.7deg, #65c7f7, #b2fefa); */
     background: linear-gradient(64.7deg, #77A6F7, #d3e3fc);
 }
 

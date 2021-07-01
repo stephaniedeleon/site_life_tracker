@@ -31,7 +31,7 @@ export default function Navbar() {
                 <Link to='/exercise'>Exercise</Link>
                 <Link to='/nutrition'>Nutrition</Link>
                 <Link to='/sleep'>Sleep</Link>
-                {/* if user is not authenticated or logged in, it will show the log in and register
+                {/* if user is not authenticated, it will show the log in and register
                   - if yes, it will show log out  */}
                 { !authenticated ? (
                   <div> 

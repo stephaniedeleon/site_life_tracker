@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import React, { useContext } from "react";
+import { useContext } from "react";
 import AuthContext from "contexts/auth";
 
 import apiClient from "services/apiClient";

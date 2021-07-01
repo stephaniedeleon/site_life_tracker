@@ -17,6 +17,7 @@ export default function Exercise({ exercises, setExercises }) {
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
 
+  
   //fetches exercises
   useEffect(() => {
     const fetchExercises = async () => {
