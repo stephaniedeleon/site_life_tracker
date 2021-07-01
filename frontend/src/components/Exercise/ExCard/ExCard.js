@@ -15,7 +15,7 @@ export default function ExCard({ key, exercise }) {
             </div>
             <div className="intensity">
               <p className="valueName">Intensity</p>
-              <p className="value">{exercise.intensity}</p>
+              <p className="value">{exercise.intensity}/10</p>
             </div>
           </div>
           <div className="extra_details">
