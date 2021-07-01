@@ -6,11 +6,6 @@ export default function ProtectedRoute({ element }) {
 
     const { user, authenticated } = useContext(AuthContext);
 
-    // if(!authenticated) return null
-
-    console.log({user});
-    console.log({authenticated});
-
     if(!authenticated && !user?.username) return <Login message="You must be logged in to access this page."/>
 
     return <>{element}</>
