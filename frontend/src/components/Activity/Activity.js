@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { PageHeader } from "components";
+import AuthContext from "contexts/auth";
+
 import "./Activity.css";
 
 export default function Activity({ totalExerciseTime, averageCalories, avgSleepHours }) {
 
+  const { appState } = useContext(AuthContext);
+
+  const userName = appState?.user?.firstName;
+  const welcome = "Welcome " + userName + "!";
+
   return (
     <div className="Activity"> 
+      <PageHeader sectionName={welcome}/>
       <div className="activity-area">
 
         <div className="title">
