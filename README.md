@@ -39,9 +39,30 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+Login/Logout/Register, Nav bar, and Heroku & Surge Deployment| 
+:-------------------------:
+<img src="demo1.gif"><br> |
 
-`ADD_EMBEDDED_CODE_HERE`
+Exercise, Nutrition, & Sleep Pages| 
+:-------------------------:
+<img src="demo2.gif"><br> |
+
+Landing & Activity Page| 
+:-------------------------:
+<img src="demo3.gif"><br> |
+
+Activity tracked w/ unique IDs| 
+:-------------------------:
+<img src="demo4.gif"><br> |
+
+Tokens / Authentication | 
+:-------------------------:
+<img src="demo5.gif"><br> |
+
+Authorization (security middleware) | 
+:-------------------------:
+<img src="demo6.gif"><br> |
+
 
 ### Reflection
 
