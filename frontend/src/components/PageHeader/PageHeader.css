@@ -1,7 +1,6 @@
 .PageHeader {
     margin-top: 20px;
-    background-color: #fffdec;
-    /* background: linear-gradient(64.7deg, #fffdec, #fffdec); */
+    background: radial-gradient(#ffff, #fffdec);
     width: 100%;
     height: 150px;
     font-family: 'Playfair Display', serif;
