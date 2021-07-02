@@ -56,7 +56,13 @@
     margin-top: 25px;
     border-radius: 4px;
     cursor: pointer;
-    border: 1px solid #00c98e;
-    background-color: white;
     font-size: 16px;
+    border: 1px solid rgb(203, 203, 203);
+    transition: all 0.2s ease 0s;
+    background: radial-gradient(#ffff, #d9fffd);
+}
+
+.CreateExercise .card .form button:hover {
+    border: 1px solid;
+    border-radius: 12px;
 }

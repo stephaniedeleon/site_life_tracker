@@ -1,7 +1,6 @@
 .SleepCard .card {
-    margin: 20px;
     padding: 30px;
-    width: 400px;
+    width: 345px;    
     min-height: 220px;
     display: grid;
     grid-template-rows: 5px 5px 1fr 12px;
