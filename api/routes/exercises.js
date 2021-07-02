@@ -49,4 +49,18 @@ router.get('/total', requireAuthenticatedUser, async (req, res, next) => {
 });
 
 
+/** Average intensity */
+router.get('/average', requireAuthenticatedUser, async (req, res, next) => {
+
+    try {
+        const user = res.locals.user;
+        const avgIntensity = await Exercise.getAvgIntensity(user);
+        res.status(201).json(avgIntensity);
+
+    } catch (err) {
+      next(err);
+    }
+});
+
+
 module.exports = router;

@@ -50,4 +50,19 @@ router.get("/average", requireAuthenticatedUser, async (req, res, next) => {
 });
 
 
+/** Total sleep hours  */
+router.get("/total", requireAuthenticatedUser, async (req, res, next) => {
+
+    try {
+        const user = res.locals.user;
+        const totalSleepHours = await Sleep.getTotalSleepHours(user);
+        res.status(200).json(totalSleepHours);
+
+    } catch(err) {
+        console.log(err);
+        next(err);
+    }
+});
+
+
 module.exports = router;

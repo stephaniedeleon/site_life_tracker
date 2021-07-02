@@ -18,7 +18,10 @@ function App() {
   const [sleeps, setSleeps] = useState([]); 
 
   const [totalExerciseTime, setTotalExerciseTime] = useState(0);
+  const [avgIntensity, setAvgIntensity] = useState(0);
+  const [maxCalories, setMaxCalories] = useState(0);
   const [averageCalories, setAverageCalories] = useState(0);
+  const [totalHoursSlept, setTotalHoursSlept] = useState(0);
   const [avgSleepHours, setAvgSleepHours] = useState(0);
 
 
@@ -59,7 +62,7 @@ function App() {
   }, []);
 
 
-  /** Fetch total exercise time by user */
+  /** Fetch exercise info of user */
   useEffect(() => {
 
     const fetchExerciseTime = async () => {
@@ -68,12 +71,19 @@ function App() {
       if(error) setError(error);
     }
 
+    const fetchAvgIntensity = async () => {
+      const { data, error } = await apiClient.fetchAvgExerciseIntensity();
+      if (data?.avgIntensity) setAvgIntensity(parseFloat(data.avgIntensity).toFixed(1));
+      if(error) setError(error);
+    }
+
     fetchExerciseTime();
+    fetchAvgIntensity();
 
   }, [exercises]);
 
 
-  /** Fetch average calories by user */
+  /** Fetch nutrition info of user */
   useEffect(() => {
 
     const fetchAvgCalories = async () => {
@@ -82,21 +92,35 @@ function App() {
       if(error) setError(error);
     }
 
+    const fetchMaxCalories = async () => {
+      const { data, error } = await apiClient.fetchMaxHourlyCalories();
+      if (data?.maxCalories) setMaxCalories(data.maxCalories);
+      if(error) setError(error);
+    }
+
     fetchAvgCalories();
+    fetchMaxCalories();
 
   }, [nutritions]);
 
 
-  /** Fetch average sleep hours by user */
+  /** Fetch sleep info of user */
   useEffect(() => {
-    
+
     const fetchAvgSleepHours = async () => {
       const { data, error } = await apiClient.fetchAvgSleepHours();
       if (data?.avgSleepHours) setAvgSleepHours(parseFloat(data.avgSleepHours).toFixed(1));
       if(error) setError(error);
     }
 
+    const fetchSleepHours = async () => {
+      const { data, error } = await apiClient.fetchTotalHoursSlept();
+      if (data?.totalSleepHours) setTotalHoursSlept(data.totalSleepHours);
+      if(error) setError(error);
+    }
+
     fetchAvgSleepHours();
+    fetchSleepHours();
 
   }, [sleeps]);
 
@@ -110,7 +134,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
 
-            <Route path='/activity' element={ <ProtectedRoute element={<Activity totalExerciseTime={totalExerciseTime} averageCalories={averageCalories} avgSleepHours={avgSleepHours} />} />} />
+            <Route path='/activity' element={ <ProtectedRoute element={<Activity totalExerciseTime={totalExerciseTime} averageCalories={averageCalories} avgSleepHours={avgSleepHours} avgIntensity={avgIntensity} maxCalories={maxCalories} totalHoursSlept={totalHoursSlept} />} />} />
 
             <Route path='/exercise' element={ <ProtectedRoute element={<Exercise exercises={exercises} setExercises={setExercises} />} />} />
             <Route path='/exercise/create' element={ <CreateExercise addExercise={addExercise} />} /> 

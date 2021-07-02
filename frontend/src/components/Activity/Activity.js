@@ -5,7 +5,7 @@ import AuthContext from "contexts/auth";
 
 import "./Activity.css";
 
-export default function Activity({ totalExerciseTime, averageCalories, avgSleepHours }) {
+export default function Activity({ totalExerciseTime, averageCalories, avgSleepHours, avgIntensity, maxCalories, totalHoursSlept }) {
 
   const { appState } = useContext(AuthContext);
 
@@ -52,17 +52,17 @@ export default function Activity({ totalExerciseTime, averageCalories, avgSleepH
         <div className="overview">
             <div className="sumCard2 exercise">
                 <h3 className="valueName">Avg Exercise Intensity</h3>
-                <p className="value">0</p>
+                <p className="value">{avgIntensity}</p>
             </div>
 
             <div className="sumCard2 nutrition">
                 <h3 className="valueName">Maximum Hourly Calories</h3>
-                <p className="value">0</p>
+                <p className="value">{maxCalories}</p>
             </div>
 
             <div className="sumCard2 sleep">
                 <h3 className="valueName">Total Hours Slept</h3>
-                <p className="value">0</p>
+                <p className="value">{totalHoursSlept}</p>
             </div>
         </div>
 

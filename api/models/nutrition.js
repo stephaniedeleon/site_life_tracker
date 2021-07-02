@@ -58,7 +58,21 @@ class Nutrition {
         const result = await db.query(query, [user.email]);
 
         return result.rows[0];
-    }    
+    }  
+    
+    
+    /** Fetch max calories */
+    static async getMaxCalories(user) {
+
+        const query = `
+            SELECT MAX(calories) as "maxCalories" 
+            FROM nutritions
+            WHERE nutritions.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    }  
 }
 
 module.exports = Nutrition;

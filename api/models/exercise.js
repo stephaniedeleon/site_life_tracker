@@ -59,6 +59,19 @@ class Exercise {
         return result.rows[0];
     }
 
+    /** Fetch avg exercise intensity */
+    static async getAvgIntensity(user) {
+
+        const query = `
+            SELECT AVG(intensity) as "avgIntensity" 
+            FROM exercises
+            WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    }
+
 }
 
 module.exports = Exercise;

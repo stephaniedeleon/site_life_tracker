@@ -56,17 +56,20 @@ class Sleep {
 
         return result.rows[0];
     }  
+
+
+    /** Fetch total sleep hours */
+    static async getTotalSleepHours(user) {
+
+        const query = `
+            SELECT SUM(hours) as "totalSleepHours" 
+            FROM sleeps
+            WHERE sleeps.user_id = (SELECT id FROM users WHERE email=$1)
+        `
+        const result = await db.query(query, [user.email]);
+
+        return result.rows[0];
+    } 
 }
 
 module.exports = Sleep;
-
-
-// CREATE TABLE sleeps (
-//     id            SERIAL PRIMARY KEY,
-//     user_id       INTEGER NOT NULL,
-//     start_time    DATETIME NOT NULL,
-//     end_time      DATETIME NOT NULL,
-//     hours         INTEGER NOT NULL DEFAULT 1,
-//     created_at    TIMESTAMP NOT NULL DEFAULT NOW(),
-//     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-// );

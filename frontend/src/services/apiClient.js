@@ -42,6 +42,10 @@ class ApiClient {
         return await this.request({ endpoint: "exercise/total/", method: "GET" });
     }
 
+    async fetchAvgExerciseIntensity() { 
+        return await this.request({ endpoint: "exercise/average/", method: "GET" });
+    }
+
     //Nutrition
 
     async listNutrition() {
@@ -56,6 +60,10 @@ class ApiClient {
         return await this.request({ endpoint: "nutrition/average/", method: "GET" });
     }
 
+    async fetchMaxHourlyCalories() { 
+        return await this.request({ endpoint: "nutrition/max/", method: "GET" });
+    }
+
     //Sleep
 
     async listSleep() {
@@ -68,6 +76,10 @@ class ApiClient {
 
     async fetchAvgSleepHours() { 
         return await this.request({ endpoint: "sleep/average/", method: "GET" });
+    }
+
+    async fetchTotalHoursSlept() { 
+        return await this.request({ endpoint: "sleep/total/", method: "GET" });
     }
 
     //User stuff
