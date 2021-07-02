@@ -9,7 +9,7 @@ class Sleep {
         const query = `
             SELECT * FROM sleeps
             WHERE sleeps.user_id = (SELECT id FROM users WHERE email=$1)
-            ORDER BY created_at DESC
+            ORDER BY end_time DESC
         `
 
         const result = await db.query(query, [user.email]);
