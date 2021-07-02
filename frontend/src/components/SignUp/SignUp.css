@@ -53,11 +53,8 @@
 
 .SignUp .card .footer {
     border-top: 1px solid black;
-    margin-top: 10px;
+    margin-top: 50px;
     height: 90px;
-}
-
-.SignUp .card .footer {
     width: 100%;
     display: flex;
     align-items: center;

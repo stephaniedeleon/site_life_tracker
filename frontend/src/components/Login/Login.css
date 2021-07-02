@@ -16,7 +16,7 @@
 
     display: flex;
     flex-direction: column;
-    min-height: 600px;
+    min-height: 500px;
     width: 520px;
 }
 
@@ -37,7 +37,6 @@
     margin-top: 5px;
     width: 100%;
     background: transparent;
-    color: var(--pure-white);
 }
 
 .Login .card .error {
@@ -46,11 +45,7 @@
 
 .Login .card .footer {
     border-top: 1px solid black;
-    margin-top: auto;
-    height: 90px;
-}
-
-.Login .card .footer {
+    margin-top: 50px;
     width: 100%;
     display: flex;
     align-items: center;

@@ -33,7 +33,7 @@ export default function Login({ message }) {
             </div>
 
             <div className="footer">
-              <p>Don"t have an account? Sign up <Link to="/register">here.</Link></p>
+              <p>Don't have an account? Sign up <Link to="/register">here.</Link></p>
             </div>
 
         </div>
