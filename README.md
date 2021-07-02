@@ -41,27 +41,27 @@ Implement any of the following features to improve the application:
 
 Login/Logout/Register, Nav bar, and Heroku & Surge Deployment| 
 :-------------------------:
-<img src="demo1.gif"><br> |
+<img src="demo1.gif" width=900px><br> |
 
 Exercise, Nutrition, & Sleep Pages| 
 :-------------------------:
-<img src="demo2.gif"><br> |
+<img src="demo2.gif" width=900px><br> |
 
 Landing & Activity Page| 
 :-------------------------:
-<img src="demo3.gif"><br> |
+<img src="demo3.gif" width=900px><br> |
 
 Activity tracked w/ unique IDs| 
 :-------------------------:
-<img src="demo4.gif"><br> |
+<img src="demo4.gif" width=900px><br> |
 
 Tokens / Authentication | 
 :-------------------------:
-<img src="demo5.gif"><br> |
+<img src="demo5.gif" width=900px><br> |
 
 Authorization (security middleware) | 
 :-------------------------:
-<img src="demo6.gif"><br> |
+<img src="demo6.gif" width=900px><br> |
 
 
 ### Reflection
