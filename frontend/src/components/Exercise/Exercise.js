@@ -10,9 +10,9 @@ import ExCard from "./ExCard/ExCard";
 import { PageHeader } from "components";
 import "./Exercise.css";
 
-export default function Exercise({ exercises, setExercises }) {
+export default function Exercise({ setExercises }) {
 
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, appState, exercises } = useContext(AuthContext);
 
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -32,7 +32,7 @@ export default function Exercise({ exercises, setExercises }) {
 
     if (authenticated) fetchExercises();
 
-  }, [authenticated, setExercises]); 
+  }, [authenticated, setExercises, appState]); 
 
   
   return (

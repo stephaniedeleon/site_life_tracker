@@ -10,9 +10,9 @@ import { PageHeader } from "components";
 import SleepCard from "./SleepCard/SleepCard";
 import "./Sleep.css";
 
-export default function Sleep({ sleeps, setSleeps }) {
+export default function Sleep({ setSleeps }) {
 
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, sleeps, appState } = useContext(AuthContext);
 
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -32,7 +32,7 @@ export default function Sleep({ sleeps, setSleeps }) {
 
     if (authenticated) fetchSleeps();
 
-  }, [authenticated, setSleeps]); 
+  }, [authenticated, setSleeps, appState]); 
 
 
   return (

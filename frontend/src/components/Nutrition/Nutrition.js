@@ -10,9 +10,9 @@ import { PageHeader } from "components";
 import NutritionCard from './NutritionCard/NutritionCard';
 import "./Nutrition.css";
 
-export default function Nutrition({ nutritions, setNutritions }) {
+export default function Nutrition({ setNutritions }) {
 
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated, nutritions, appState } = useContext(AuthContext);
 
   const [error, setError] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -31,7 +31,7 @@ export default function Nutrition({ nutritions, setNutritions }) {
 
     if (authenticated) fetchNutritions();
   
-  }, [authenticated, setNutritions]);
+  }, [authenticated, setNutritions, appState]);
 
   
   return (
