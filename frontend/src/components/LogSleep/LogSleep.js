@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import apiClient from "services/apiClient";
 import { PageHeader } from "components";
 import moment from "moment";
@@ -55,6 +55,8 @@ export default function LogSleep({ addSleep }) {
         <div className="LogSleep">
             <PageHeader sectionName="Sleep"/>
             <div className="card">
+                <Link to='/sleep'>X</Link>
+                <br/>
                 <h2>Add Sleep</h2>
                 {/* shows error at the top of the form */}
                 {errors.form && <span className="error">{errors.form}</span>}

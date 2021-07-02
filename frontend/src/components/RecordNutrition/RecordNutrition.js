@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import apiClient from "services/apiClient";
 import { PageHeader } from "components";
 import "./RecordNutrition.css";
@@ -53,6 +53,8 @@ export default function RecordNutrition({ addNutrition }) {
         <div className="RecordNutrition">
             <PageHeader sectionName="Nutrition"/>
             <div className="card">
+                <Link to='/nutrition'>X</Link>
+                <br/>
                 <h2>Record Nutrition</h2>
                 {/* shows error at the top of the form */}
                 {errors.form && <span className="error">{errors.form}</span>}

@@ -4,6 +4,22 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.CreateExercise a {
+    position: absolute;
+    font-family: "Varela", serif;
+    font-size: 17px;
+    border-radius: 8px;
+    padding: 4px 10px;
+    border: 1px solid rgb(203, 203, 203);
+    color: #2c4147;
+    transition: all 0.2s ease 0s;
+}
+
+.CreateExercise a:hover {
+    border: 1px solid;
+    border-radius: 12px;
+}
   
 .CreateExercise .card {
     border: 1px solid rgb(202, 202, 202);

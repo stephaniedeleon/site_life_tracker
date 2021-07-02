@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import apiClient from "services/apiClient";
 import { PageHeader } from "components";
 import "./CreateExercise.css";
@@ -52,7 +52,10 @@ export default function CreateExercise({ addExercise }) {
     return (
         <div className="CreateExercise">
             <PageHeader sectionName="Exercise"/>
+
             <div className="card">
+                <Link to='/exercise'>X</Link>
+                <br/>
                 <h2>Add Exercise</h2>
                 {/* shows error at the top of the form */}
                 {errors.form && <span className="error">{errors.form}</span>}
