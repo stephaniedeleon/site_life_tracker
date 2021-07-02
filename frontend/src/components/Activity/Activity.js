@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PageHeader } from "components";
 import AuthContext from "contexts/auth";
 
@@ -7,10 +7,8 @@ import "./Activity.css";
 
 export default function Activity({ totalExerciseTime, averageCalories, avgSleepHours, avgIntensity, maxCalories, totalHoursSlept }) {
 
-  const { appState } = useContext(AuthContext);
-
-  const userName = appState?.user?.firstName;
-  const welcome = "Welcome " + userName + "!";
+  const { user } = useContext(AuthContext);
+  const welcome = "Welcome " + user?.firstName + "!";
 
   return (
     <div className="Activity"> 
