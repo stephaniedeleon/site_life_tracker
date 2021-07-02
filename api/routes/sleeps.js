@@ -44,7 +44,6 @@ router.get("/average", requireAuthenticatedUser, async (req, res, next) => {
         res.status(200).json(avgSleepHours);
 
     } catch(err) {
-        console.log(err);
         next(err);
     }
 });
@@ -59,7 +58,6 @@ router.get("/total", requireAuthenticatedUser, async (req, res, next) => {
         res.status(200).json(totalSleepHours);
 
     } catch(err) {
-        console.log(err);
         next(err);
     }
 });

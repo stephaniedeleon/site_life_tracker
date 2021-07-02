@@ -44,7 +44,6 @@ router.get("/average", requireAuthenticatedUser, async (req, res, next) => {
         res.status(200).json(avgCalories);
 
     } catch(err) {
-        console.log(err);
         next(err);
     }
 });
@@ -59,7 +58,6 @@ router.get("/max", requireAuthenticatedUser, async (req, res, next) => {
         res.status(200).json(maxCalories);
 
     } catch(err) {
-        console.log(err);
         next(err);
     }
 });
