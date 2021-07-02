@@ -9,6 +9,7 @@ class Exercise {
         const query = `
             SELECT * FROM exercises
             WHERE exercises.user_id = (SELECT id FROM users WHERE email=$1)
+            ORDER BY created_at DESC
         `
         const result = await db.query(query, [user.email]);
 
