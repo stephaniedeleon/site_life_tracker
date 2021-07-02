@@ -68,15 +68,15 @@ Authorization (security middleware) |
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+  - Yes, the topics discussed in the labs prepared me to complete the assignment. From learning about connecting Node, Express & React to middleware, customhooks, and contexts. Also, studying and understanding the demo codes also helped me as I completed the assignment. Although, deploying the website with heroku and surge and implementing contexts and customhooks in my code was challenging for me. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+  - If I had more time, I would definitely edit and delete features for tracking activities. I would also add a details page for each activity log, so when a user clicks on an activity card they would be able to see the details of that activity log. Lastly, I would implement the stretch feature of creating a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+  - In my project demo, fortunately, I was able to demonstrate all the core features and everything did go as planned. From my peer's demo, I loved how we all had different visualizations of how the app looks like!
 
 ### Open-source libraries used
 
@@ -86,4 +86,4 @@ Authorization (security middleware) |
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+- Shout out to Matt who helped me deploy my website with heroku and surge!
